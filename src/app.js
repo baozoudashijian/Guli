@@ -1,9 +1,6 @@
 import Vue from 'vue';
-import Button from './button.vue'
+import App from "./App.vue"; // 不写全路径会报错
 
-console.log(Button)
-
-Vue.component('g-button', Button)
 
 // 在最顶层必须要调用render方法，不然渲染不出来.
 new Vue({
@@ -11,5 +8,5 @@ new Vue({
   data: {
 
   },
-  render:c=>c(Button)
+  render:c=>c(App)
 })
