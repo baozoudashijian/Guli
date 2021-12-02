@@ -1,6 +1,9 @@
 <template>
     <div>
         <g-button></g-button>
+        <g-button icon="setting"></g-button>
+        <g-button icon="setting" iconPosition="left"></g-button>
+        <g-button icon="setting" iconPosition="right"></g-button>
     </div>
 </template>
 
