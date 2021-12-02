@@ -1,15 +1,14 @@
 <template>
-    <button class="g-button" :class="{ [`icon-${iconPosition}`]: iconPosition }" @click="$emit('click')">
-        <svg v-if="loading" class="g-icon loading">
-            <use :xlink:href=`#icon-loading`></use>
-        </svg>
-        <svg v-if="icon && !loading" class="g-icon">
-            <use :xlink:href=`#icon-${icon}`></use>
-        </svg>
+    <button class="g-button" :class="{ [`icon-${iconPosition}`]: iconPosition, [`btn-${type}`]: true }" @click="$emit('click')">
+        <g-icon v-if="loading" class="loading" icon="loading"></g-icon>
+        <g-icon v-if="icon &&!loading" :icon="icon"></g-icon>
         <span><slot></slot></span>
     </button>
 </template>
 <script>
+
+  import Icon from './icon.vue'
+
   export default {
     props: {
       icon: {
@@ -23,13 +22,14 @@
       loading: {
         type: Boolean,
         default: false
+      },
+      type: {
+        type: String,
+        default: "Primary"
       }
     },
-    watch: {
-      loading(newV,oldV) {
-        // do something
-        console.log(newV,oldV)
-      }
+    components: {
+      'g-icon': Icon
     }
   }
 
@@ -60,9 +60,6 @@
 
             &:active
                 background-color: var(--button-active-bg)
-            .g-icon
-                width: 1em
-                height: 1em
             > span
                 margin-left: .2em
             .loading
@@ -81,4 +78,14 @@
                 order: 1
                 margin-left: 0
                 margin-right: .2em
+        .btn-primary
+            background-color: var(--primary)
+        .btn-success
+            background-color: var(--success)
+        .btn-info
+            background-color: var(--info)
+        .btn-warning
+            background-color: var(--warning)
+        .btn-danger
+            background-color: var(--danger)
 </style>

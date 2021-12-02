@@ -14,12 +14,25 @@
                 <g-button icon="arrow-right" :loading="loading" icon-position="right">下一页</g-button>
             </g-button-group>
         </div>
+        <div class="section">
+            <g-button>
+                <g-icon icon="setting"></g-icon>
+            </g-button>
+        </div>
+        <div class="section">
+            <g-button type="primary">Primary</g-button>
+            <g-button type="success">Success</g-button>
+            <g-button type="info">Info</g-button>
+            <g-button type="warning">Warning</g-button>
+            <g-button type="danger">Danger</g-button>
+        </div>
     </div>
 </template>
 
 <script>
   import Button from './button.vue'
   import ButtonGroup from './button-group.vue'
+  import Icon  from './icon.vue'
 
   export default {
     name: "App",
@@ -35,7 +48,8 @@
     },
     components: {
       'g-button': Button,
-      'g-button-group': ButtonGroup
+      'g-button-group': ButtonGroup,
+      'g-icon': Icon
     }
   }
 </script>
