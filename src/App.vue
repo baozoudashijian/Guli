@@ -30,10 +30,11 @@
 </template>
 
 <script>
+    import Vue from 'vue'
   import Button from './button.vue'
   import ButtonGroup from './button-group.vue'
   import Icon  from './icon.vue'
-
+  import chai from 'chai'
   export default {
     name: "App",
     data() {
@@ -52,6 +53,36 @@
       'g-icon': Icon
     }
   }
+
+  /*
+  * 单元测试
+  * */
+  const expect = chai.expect
+
+  try {
+    {
+      const Constructor = Vue.extend(Button)
+      const vm = new Constructor({
+        propsData: {
+          icon: 'setting'
+        }
+      })
+      vm.$mount()
+      let useElement = vm.$el.querySelector('use')
+      let href = useElement.getAttribute('xlink:href')
+      expect(href).to.eq('#i-setting')
+      vm.$el.remove()
+      vm.$destroy()
+    }
+
+  }catch (err) {
+    window.errors = [err]
+  } finally {
+    window.errors && window.errors.forEach(err => {
+      console.error(err.message);
+    })
+  }
+
 </script>
 
 <style scoped lang="sass">
