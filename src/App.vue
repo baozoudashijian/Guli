@@ -30,11 +30,9 @@
 </template>
 
 <script>
-    import Vue from 'vue'
   import Button from './button.vue'
   import ButtonGroup from './button-group.vue'
   import Icon  from './icon.vue'
-  import chai from 'chai'
   export default {
     name: "App",
     data() {
