@@ -1,5 +1,6 @@
 <template>
-    <div>
+<div>
+  <div class="component-group">
         <div class="section">
             <g-button>按钮</g-button>
             <g-button icon="setting">按钮</g-button>
@@ -27,6 +28,14 @@
             <g-button type="danger">Danger</g-button>
         </div>
     </div>
+    <div class="component-group">
+        <div class="section">
+            <g-input></g-input>
+        </div>
+    </div>
+    
+</div>
+    
 </template>
 
 <script>
@@ -34,7 +43,8 @@
   import Button from './button.vue'
   import ButtonGroup from './button-group.vue'
   import Icon  from './icon.vue'
-  import chai from 'chai'
+  import Input from './input.vue'
+
   export default {
     name: "App",
     data() {
@@ -50,13 +60,19 @@
     components: {
       'g-button': Button,
       'g-button-group': ButtonGroup,
-      'g-icon': Icon
+      'g-icon': Icon,
+      'g-input': Input
     }
   }
 
 </script>
 
 <style scoped lang="sass">
+
+.component-group
+    margin-bottom: 100px
+    &:last-child
+      margin-bottom: 0
     .section
         margin-bottom: 10px
 
