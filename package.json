@@ -1,6 +1,6 @@
 {
-  "name": "Guli",
-  "version": "1.0.0",
+  "name": "gulizhang",
+  "version": "1.0.2",
   "description": "跟着frankfang一起造轮子",
   "main": "./src/app.js",
   "scripts": {
@@ -14,8 +14,8 @@
     "url": "git+https://github.com/baozoudashijian/Guli.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "rongerzhang",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/baozoudashijian/Guli/issues"
   },

@@ -39,12 +39,18 @@
 </template>
 
 <script>
+<<<<<<< HEAD
   import Vue from 'vue'
   import Button from './button.vue'
   import ButtonGroup from './button-group.vue'
   import Icon  from './icon.vue'
   import Input from './input.vue'
 
+=======
+  import Button from './button.vue'
+  import ButtonGroup from './button-group.vue'
+  import Icon  from './icon.vue'
+>>>>>>> circleci-project-setup
   export default {
     name: "App",
     data() {
