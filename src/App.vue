@@ -30,7 +30,7 @@
 </template>
 
 <script>
-    import Vue from 'vue'
+  import Vue from 'vue'
   import Button from './button.vue'
   import ButtonGroup from './button-group.vue'
   import Icon  from './icon.vue'
