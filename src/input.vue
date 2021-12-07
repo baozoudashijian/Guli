@@ -1,6 +1,11 @@
 <template>
     <div class="wrapper">
-        <input type="text">
+        <input type="text"
+               @input="$emit('input', $event.target.value)"
+               @change="$emit('change', $event.target.value)"
+               @focus="$emit('focus', $event.target.value)"
+               @blur="$emit('blur', $event.target.value)"
+        >
     </div>
 </template>
 <script>
@@ -29,6 +34,7 @@ export default {
             border-radius: $border-radius
             padding: 0 8px
             font-size: inherit
+            outline: none
 
             &:hover 
                 border-color: $border-color-hover

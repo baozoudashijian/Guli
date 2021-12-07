@@ -30,12 +30,13 @@
     </div>
     <div class="component-group">
         <div class="section">
-            <g-input></g-input>
+            <g-input :value="message" @input="handleInput" @change="handleChange" @focus="handleFocus" @blur="handleBlur"></g-input>
+            {{message}}
         </div>
     </div>
-    
+
 </div>
-    
+
 </template>
 
 <script>
@@ -49,12 +50,26 @@
     name: "App",
     data() {
       return {
-        loading: false
+        loading: false,
+        message: '',
+        message2: ''
       }
     },
     methods: {
       btnClick() {
         this.loading = !this.loading
+      },
+      handleInput(value) {
+        this.message = value
+      },
+      handleChange(value) {
+        console.log(value)
+      },
+      handleFocus(value) {
+        console.log(value)
+      },
+      handleBlur(value) {
+        console.log(value)
       }
     },
     components: {
