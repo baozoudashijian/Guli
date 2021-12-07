@@ -30,8 +30,15 @@
     </div>
     <div class="component-group">
         <div class="section">
-            <g-input :value="message" @input="handleInput" @change="handleChange" @focus="handleFocus" @blur="handleBlur"></g-input>
-            {{message}}
+            <g-input :value="message"
+                     :error="errMsg"
+                     @input="handleInput"
+                     @change="handleChange"
+                     @focus="handleFocus"
+                     @blur="handleBlur"
+            ></g-input>
+            <g-input value="只读" readonly ></g-input>
+            <g-input value="disabled" disabled ></g-input>
         </div>
     </div>
 
@@ -52,7 +59,8 @@
       return {
         loading: false,
         message: '',
-        message2: ''
+        message2: '',
+        errMsg: ''
       }
     },
     methods: {
@@ -60,6 +68,11 @@
         this.loading = !this.loading
       },
       handleInput(value) {
+        if(value && Number(value) > 100) {
+          this.errMsg = '你填写的信息有误'
+        } else {
+          this.errMsg = ''
+        }
         this.message = value
       },
       handleChange(value) {
