@@ -11,8 +11,9 @@ module.exports = function (config) {
         includeStack: true
       }
     },
-
-
+    plugins: [
+      require('karma-chrome-launcher')
+    ],
     // list of files / patterns to load in the browser
     files: [
       'node_modules/babel-polyfill/dist/polyfill.js',
