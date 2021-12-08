@@ -5,16 +5,16 @@ module.exports = function (config) {
     basePath: '',
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha', 'sinon-chai', 'karma-chrome-launcher'],
+    frameworks: ['mocha', 'sinon-chai'],
     client: {
       chai: {
         includeStack: true
       }
     },
     plugins: [
+      require('karma-chrome-launcher'),
       require('karma-sinon-chai'),
       require('karma-mocha'),
-      require('karma-chrome-launcher')
     ],
     // list of files / patterns to load in the browser
     files: [
