@@ -41,6 +41,32 @@
             <g-input value="disabled" disabled ></g-input>
         </div>
     </div>
+    <div class="component-group">
+      <g-row class="row">
+        <g-col span="8" class="jay">8</g-col>
+        <g-col span="8" class="jay">8</g-col>
+        <g-col span="8" class="jay">8</g-col>
+      </g-row>
+      <g-row>
+        <g-col span="6" class="jay">6</g-col>
+        <g-col span="6" class="jay">6</g-col>
+        <g-col span="6" class="jay">6</g-col>
+        <g-col span="6" class="jay">6</g-col>
+      </g-row>
+      <g-row>
+        <g-col span="12" class="jay">12</g-col>
+        <g-col span="12" class="jay">12</g-col>
+      </g-row>
+      <g-row>
+        <g-col span="20" class="jay">20</g-col>
+        <g-col span="4" class="jay">4</g-col>
+      </g-row>
+      <g-row>
+        <g-col span="7" class="jay">7</g-col>
+        <g-col span="3" class="jay">3</g-col>
+        <g-col span="14" class="jay">13</g-col>
+      </g-row>
+    </div>
 
 </div>
 
@@ -52,6 +78,8 @@
   import ButtonGroup from './button-group.vue'
   import Icon  from './icon.vue'
   import Input from './input.vue'
+  import Col from './col.vue'
+  import Row from './row.vue'
 
   export default {
     name: "App",
@@ -89,13 +117,18 @@
       'g-button': Button,
       'g-button-group': ButtonGroup,
       'g-icon': Icon,
-      'g-input': Input
+      'g-input': Input,
+      'g-row': Row,
+      'g-col': Col
     }
   }
 
 </script>
 
 <style scoped lang="sass">
+$col-height: 40px
+$background-even: rgba(0,146,255,.75)
+$background-odd: rgba(0,0,0,.2)
 
 .component-group
     margin-bottom: 100px
@@ -103,5 +136,15 @@
       margin-bottom: 0
     .section
         margin-bottom: 10px
+    .row 
+      margin-bottom: 20px
+    .jay
+      height: $col-height
+      line-height: $col-height
+      color: white
+      text-align: center
+      background-color: $background-even
+      &:nth-child(2n)
+        background-color: $background-odd
 
 </style>
