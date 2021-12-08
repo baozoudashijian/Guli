@@ -12,6 +12,7 @@ module.exports = function (config) {
       }
     },
     plugins: [
+      require('karma-sinon-chai'),
       require('karma-mocha'),
       require('karma-chrome-launcher')
     ],
