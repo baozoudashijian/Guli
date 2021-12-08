@@ -5,7 +5,7 @@ module.exports = function (config) {
     basePath: '',
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha', 'sinon-chai'],
+    frameworks: ['mocha', 'sinon-chai', 'karma-chrome-launcher'],
     client: {
       chai: {
         includeStack: true
