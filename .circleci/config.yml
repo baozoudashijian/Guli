@@ -10,6 +10,9 @@ jobs:
   test:
     docker:
       - image: 'cimg/node:1.2.3-browser'
+        auth:
+          username: rongerzhang
+          password: Yhldcahcy521
     steps:
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
