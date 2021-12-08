@@ -19,6 +19,6 @@ workflows:
         steps:
           - browser-tools/install-chrome:
               replace-existing: true
-      node/test:
+      node-test:
         pkg-manager: yarn
           run-command: yarn test
