@@ -21,4 +21,8 @@ workflows:
               replace-existing: true
       node-test:
         pkg-manager: yarn
-          run-command: yarn test
+          steps:
+              - run:
+                name: Destroy Environments
+                command: |
+                  yarn start
