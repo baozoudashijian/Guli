@@ -66,6 +66,12 @@
         <g-col span="3" class="jay">3</g-col>
         <g-col span="14" class="jay">13</g-col>
       </g-row>
+      <g-row>
+          <g-col span="6" class="jay"></g-col>
+          <g-col offset="6" class="jay"></g-col>
+          <g-col span="6" class="jay"></g-col>
+          <g-col offset="6" class="jay"></g-col>
+      </g-row>
     </div>
 
 </div>
