@@ -66,11 +66,13 @@
         <g-col span="3" class="jay">3</g-col>
         <g-col span="14" class="jay">13</g-col>
       </g-row>
-      <g-row>
-          <g-col span="6" class="jay"></g-col>
-          <g-col offset="6" class="jay"></g-col>
-          <g-col span="6" class="jay"></g-col>
-          <g-col offset="6" class="jay"></g-col>
+      <g-row gutter="20">
+          <g-col span="6" offset="6" class="jay">
+            <div style="width: 100%;height: 100%; border: 1px solid green"></div>
+          </g-col>
+          <g-col span="6" offset="6" class="jay">
+            <div style="width: 100%;height: 100%; border: 1px solid green"></div>
+          </g-col>
       </g-row>
     </div>
 
@@ -149,8 +151,6 @@ $background-odd: rgba(0,0,0,.2)
       line-height: $col-height
       color: white
       text-align: center
-      background-color: $background-even
-      &:nth-child(2n)
-        background-color: $background-odd
+      border: 1px solid $background-even
 
 </style>

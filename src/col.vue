@@ -1,6 +1,8 @@
 <template>
     <div :class="{ [`col-${span}`]: span ? true : false, [`offset-${offset}`]: offset ? true : false}">
-        <slot></slot>
+        <div class="content" :style="{paddingLeft: gutter ? gutter / 2 + 'px' : 0, paddingRight: gutter ? gutter / 2 + 'px': 0}">
+            <slot></slot>
+        </div>
     </div>
 </template>
 <script>
@@ -12,6 +14,17 @@
       offset: {
         type: [Number, String]
       }
+    },
+    data() {
+        return {
+            gutter: 0
+        }
+    },
+    created() {
+        console.log('col created')
+    },
+    mounted() {
+      console.log('col mounted')
     }
   }
 </script>
@@ -24,5 +37,7 @@
         .offset-#{$o}
             margin-left: $o / 24 * 100%
 
-
+    .content
+        width: 100%
+        height: 100%
 </style>
