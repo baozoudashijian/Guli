@@ -1,5 +1,5 @@
 <template>
-    <div class="row" :style="{marginLeft: -gutter/2 + 'px', marginRight: -gutter / 2 + 'px'}">
+    <div class="row" :style="rowClass">
         <slot></slot>
     </div>
 </template>
@@ -10,12 +10,17 @@ export default {
             type: [String, Number]
         }
     },
+    computed: {
+      rowClass() {
+          return {
+              marginLeft: -this.gutter/2 + 'px',
+              marginRight: -this.gutter / 2 + 'px'
+          }
+      }
+    },
     created() {
-        console.log('row created')
-        console.log(this.$children)
     },
     mounted() {
-        console.log('row mounted')
         // 获取子组件
         this.$children.forEach((vm) => {
             // 更新子组件data属性
