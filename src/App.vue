@@ -74,6 +74,18 @@
             <div style="width: 100%;height: 100%; border: 1px solid green"></div>
           </g-col>
       </g-row>
+      <g-row justify="start">
+        <g-col span='8' class="jay">7</g-col>
+        <g-col span='4' class="jay">3</g-col>
+      </g-row>
+      <g-row justify="end">
+        <g-col span='8' class="jay">7</g-col>
+        <g-col span='4' class="jay">3</g-col>
+      </g-row>
+      <g-row justify="center">
+        <g-col span='8' class="jay">7</g-col>
+        <g-col span='4' class="jay">3</g-col>
+      </g-row>
     </div>
 
 </div>
