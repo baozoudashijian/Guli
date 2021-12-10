@@ -9,5 +9,5 @@ sudo: required
 services:
   - xvfb
 before_script:
-  - export CHROME_BIN=/tmp/google-chrome-stable_current_amd64.deb
+  - export CHROME_BIN=/tmp
   - export DISPLAY=:99.0
