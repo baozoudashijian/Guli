@@ -11,5 +11,4 @@ services:
 before_script:
   - "sudo chown root /tmp"
   - "sudo apt-get install chromium-browser"
-  - export CHROME_BIN=/tmp
   - export DISPLAY=:99.0
