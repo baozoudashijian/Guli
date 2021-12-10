@@ -9,5 +9,6 @@ sudo: required
 services:
   - xvfb
 before_script:
+  - "sudo chown root /tmp"
   - export CHROME_BIN=/tmp
   - export DISPLAY=:99.0
