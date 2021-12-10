@@ -1,6 +1,6 @@
 
 # Gulu - 一个Vue UI组件
-[![Build Status](https://travis-ci.org/FrankFang/frank-test-1.svg?branch=master)](https://travis-ci.org/FrankFang/frank-test-1)
+[![Build Status](https://app.travis-ci.com/baozoudashijian/Guli.svg?branch=master)](https://app.travis-ci.com/baozoudashijian/Guli)
 
 ## 介绍
 这是我在学习封装轮子的时候，做的一个基于Vue的UI框架。希望对你有用。
