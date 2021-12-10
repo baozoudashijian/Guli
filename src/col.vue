@@ -9,22 +9,22 @@
   export default {
     props: {
       span: {
-        type: [Number, String]
+        type: [Number, String, Object]
       },
       offset: {
-        type: [Number, String]
+        type: [Number, String, Object]
       },
       ipad: {
-        type: [Number, String]
+        type: [Number, String, Object]
       },
       narrowPc: {
-        type: [Number, String]
+        type: [Number, String, Object]
       },
       pc: {
-        type: [Number, String]
+        type: [Number, String, Object]
       },
       widePc: {
-        type: [Number, String]
+        type: [Number, String, Object]
       }
     },
     data() {
@@ -35,14 +35,28 @@
     computed: {
       colClass() {
         const {span, offset, ipad, narrowPc, pc, widePc} = this
-        return [
-          span && `col-${span}`,
-          offset && `offset-${offset}`,
-          ipad && `col-ipad-${ipad}`,
-          narrowPc && `col-narrowPc-${narrowPc}`,
-          pc && `col-pc-${pc}`,
-          widePc && `col-widePc-${widePc}`,
-        ]
+        let config = []
+
+        if (ipad instanceof Object) {
+          config = [
+            span && `col-${span.span} col-offset-${span.offset}`,
+            ipad && `col-ipad-${ipad.span} col-ipad-offset-${ipad.offset}`,
+            narrowPc && `col-narrowPc-${narrowPc.span} col-narrowPc-offset-${narrowPc.offset}`,
+            pc && `col-pc-${pc.span} col-pc-offset-${pc.offset}`,
+            widePc && `col-widePc-${widePc.span} col-widePc-offset-${widePc.offset}`,
+          ]
+        } else {
+          config = [
+            span && `col-${span}`,
+            offset && `offset-${offset}`,
+            ipad && `col-ipad-${ipad}`,
+            narrowPc && `col-narrowPc-${narrowPc}`,
+            pc && `col-pc-${pc}`,
+            widePc && `col-widePc-${widePc}`,
+          ]
+        }
+
+        return config
       },
       gutterClass() {
         const {gutter} = this
@@ -60,10 +74,6 @@
 </script>
 <style lang="sass" scoped>
 
-    @for $o from 1 through 24
-      .offset-#{$o}
-        margin-left: $o / 24 * 100%
-
     .content
       width: 100%
       height: 100%
@@ -71,23 +81,34 @@
       @for $i from 1 through 24
         .col-#{$i}
           width: $i / 24 * 100%
+        .col-offset-#{$i}
+          margin-left: $i / 24 * 100%
     @media (min-width: 577px)
       @for $i from 1 through 24
         .col-ipad-#{$i}
           width: $i / 24 * 100%
+        .col-ipad-offset-#{$i}
+          margin-left: $i / 24 * 100%
 
     @media (min-width: 769px)
       @for $i from 1 through 24
         .col-narrow-#{$i}
           width: $i / 24 * 100%
+        .col-narrow-offset-#{$i}
+          margin-left: $i / 24 * 100%
 
     @media (min-width: 993px)
       @for $i from 1 through 24
         .col-pc-#{$i}
           width: $i / 24 * 100%
+        .col-pc-offset-#{$i}
+          margin-left: $i / 24 * 100%
+
 
     @media (min-width: 1201px)
       @for $i from 1 through 24
         .col-widePc-#{$i}
           width: $i / 24 * 100%
+        .col-widePc-offset-#{$i}
+          margin-left: $i / 24 * 100%
 </style>

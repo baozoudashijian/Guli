@@ -90,6 +90,10 @@
         <g-col span='24' ipad="12" narrowPc="8" pc="4" widePc="2" class="jay">7</g-col>
         <g-col span='24' ipad="12" narrowPc="14" pc="20" widePc="22" class="jay">3</g-col>
       </g-row>
+      <g-row>
+        <g-col :span='{span: 20, offset: 2}' :ipad="{span: 10, offset: 2}" :narrowPc="{span: 6, offset: 2}" :pc="{span: 2, offset: 2}" :widePc="{span: 2, offset: 2}" class="jay">7</g-col>
+        <g-col :span='{span: 20, offset: 2}' :ipad="{span: 20, offset: 2}" :narrowPc="{span: 12, offset: 2}" :pc="{span: 18, offset: 2}" :widePc="{span: 18, offset: 2}" class="jay">3</g-col>
+      </g-row>
     </div>
 
 </div>
