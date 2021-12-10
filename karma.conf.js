@@ -1,4 +1,7 @@
 module.exports = function (config) {
+  if (process.env.TRAVIS) {
+    configuration.browsers = ["Chrome_travis_ci"];
+  }
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -64,6 +67,12 @@ module.exports = function (config) {
         base: 'ChromeHeadless',
         flags: ['--no-sandbox']
       }
+    },
+    customLaunchers: {
+      Chrome_travis_ci: {
+        base: "Chrome",
+        flags: ["--no-sandbox"],
+      },
     },
 
 
