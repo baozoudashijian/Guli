@@ -6,5 +6,7 @@ node_js:
 addons:
   chrome: stable
 sudo: required
+services:
+  - xvfb
 before_script:
   - "sudo apt-get install chromium-browser"
