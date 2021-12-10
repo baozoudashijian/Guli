@@ -86,6 +86,10 @@
         <g-col span='8' class="jay">7</g-col>
         <g-col span='4' class="jay">3</g-col>
       </g-row>
+      <g-row>
+        <g-col span='24' ipad="12" narrowPc="8" pc="4" widePc="2" class="jay">7</g-col>
+        <g-col span='24' ipad="12" narrowPc="14" pc="20" widePc="22" class="jay">3</g-col>
+      </g-row>
     </div>
 
 </div>

@@ -47,6 +47,7 @@ export default {
 <style lang="sass" scoped>
     .row
         display: flex
+        flex-wrap: wrap
     .row-start
         justify-content: flex-start
     .row-end
