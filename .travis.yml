@@ -9,5 +9,5 @@ sudo: required
 services:
   - xvfb
 before_script:
-  - export CHROME_BIN=chromium-browser
+  - export CHROME_BIN=/usr/bin/chromium-browser
   - export DISPLAY=:99.0
