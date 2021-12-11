@@ -5,26 +5,40 @@
     </div>
   </div>
 </template>
-<script>
+<script>  
+  let validator = (value) => {
+    let keys = Object.keys(value)
+    let valid = true
+    keys.forEach(key => {
+      if(!['span', 'offset'].includes(key)){
+        valid = false
+      }
+    })
+    return valid
+  }
   export default {
     props: {
       span: {
-        type: [Number, String, Object]
+        type: [Number, String]
       },
       offset: {
-        type: [Number, String, Object]
+        type: [Number, String]
       },
       ipad: {
-        type: [Number, String, Object]
+        type: [Object],
+        validator
       },
       narrowPc: {
-        type: [Number, String, Object]
+        type: [Object],
+        validator
       },
       pc: {
-        type: [Number, String, Object]
+        type: [Object],
+        validator
       },
       widePc: {
-        type: [Number, String, Object]
+        type: [Object],
+        validator
       }
     },
     data() {
@@ -32,31 +46,27 @@
         gutter: 0
       }
     },
+    methods: {
+      createClasses() {
+        let classArray = []
+        let plateform = ['ipad','narrowPc','pc','widePc']
+        plateform.map((item) => {
+          if(this[item]) {
+            this[item].span && classArray.push(`col-${item}-${this[item].span}`)
+            this[item].offset && classArray.push(`col-${item}-offset-${this[item].offset}`)
+          }
+        })
+        return classArray;
+      }
+    },
     computed: {
       colClass() {
-        const {span, offset, ipad, narrowPc, pc, widePc} = this
-        let config = []
-
-        if (ipad instanceof Object) {
-          config = [
-            span && `col-${span.span} col-offset-${span.offset}`,
-            ipad && `col-ipad-${ipad.span} col-ipad-offset-${ipad.offset}`,
-            narrowPc && `col-narrowPc-${narrowPc.span} col-narrowPc-offset-${narrowPc.offset}`,
-            pc && `col-pc-${pc.span} col-pc-offset-${pc.offset}`,
-            widePc && `col-widePc-${widePc.span} col-widePc-offset-${widePc.offset}`,
-          ]
-        } else {
-          config = [
+        const {span, offset} = this
+        return [
             span && `col-${span}`,
-            offset && `offset-${offset}`,
-            ipad && `col-ipad-${ipad}`,
-            narrowPc && `col-narrowPc-${narrowPc}`,
-            pc && `col-pc-${pc}`,
-            widePc && `col-widePc-${widePc}`,
+            offset && `col-${offset}`,
+            ...this.createClasses()
           ]
-        }
-
-        return config
       },
       gutterClass() {
         const {gutter} = this
