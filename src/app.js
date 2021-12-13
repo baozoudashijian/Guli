@@ -3,6 +3,10 @@ import App from "./App.vue"; // 不写全路径会报错
 import Button from './button.vue'
 import ButtonGroup from './button-group.vue'
 import Icon  from './icon.vue'
+import { Toast } from './plugin.js'
+console.log(Toast)
+// 注册组件是异步操作
+Vue.use(Toast)
 
 export {
   Button,
