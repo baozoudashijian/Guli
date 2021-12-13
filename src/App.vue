@@ -95,38 +95,41 @@
     <!--        <g-col span='20' offset='2' :ipad="{span: 20, offset: 2}" :narrowPc="{span: 12, offset: 2}" :pc="{span: 18, offset: 2}" :widePc="{span: 18, offset: 2}" class="jay">3</g-col>-->
     <!--      </g-row>-->
     <!--    </div>-->
+    <!--    <div class="component-group">-->
+    <!--      <g-layout>-->
+    <!--        <g-header>header</g-header>-->
+    <!--        <g-content>content</g-content>-->
+    <!--        <g-footer>footer</g-footer>-->
+    <!--      </g-layout>-->
+    <!--      <g-layout>-->
+    <!--        <g-slider>sldier</g-slider>-->
+    <!--        <g-layout>-->
+    <!--          <g-header>header</g-header>-->
+    <!--          <g-content>content</g-content>-->
+    <!--          <g-footer>footer</g-footer>-->
+    <!--        </g-layout>-->
+    <!--      </g-layout>-->
+    <!--      <g-layout>-->
+    <!--        <g-layout>-->
+    <!--          <g-header>header</g-header>-->
+    <!--          <g-content>content</g-content>-->
+    <!--          <g-footer>footer</g-footer>-->
+    <!--        </g-layout>-->
+    <!--        <g-slider>sldier</g-slider>-->
+    <!--      </g-layout>-->
+    <!--      <g-layout>-->
+    <!--        <g-layout>-->
+    <!--          <g-header>header</g-header>-->
+    <!--          <g-layout>-->
+    <!--            <g-slider>sldier</g-slider>-->
+    <!--            <g-content>content</g-content>-->
+    <!--          </g-layout>-->
+    <!--        </g-layout>-->
+    <!--        <g-footer>footer</g-footer>-->
+    <!--      </g-layout>-->
+    <!--    </div>-->
     <div class="component-group">
-      <g-layout>
-        <g-header>header</g-header>
-        <g-content>content</g-content>
-        <g-footer>footer</g-footer>
-      </g-layout>
-      <g-layout>
-        <g-slider>sldier</g-slider>
-        <g-layout>
-          <g-header>header</g-header>
-          <g-content>content</g-content>
-          <g-footer>footer</g-footer>
-        </g-layout>
-      </g-layout>
-      <g-layout>
-        <g-layout>
-          <g-header>header</g-header>
-          <g-content>content</g-content>
-          <g-footer>footer</g-footer>
-        </g-layout>
-        <g-slider>sldier</g-slider>
-      </g-layout>
-      <g-layout>
-        <g-layout>
-          <g-header>header</g-header>
-          <g-layout>
-            <g-slider>sldier</g-slider>
-            <g-content>content</g-content>
-          </g-layout>
-        </g-layout>
-        <g-footer>footer</g-footer>
-      </g-layout>
+      <g-button @click="clickHandle">Toast</g-button>
     </div>
 
   </div>
@@ -160,6 +163,17 @@
     methods: {
       btnClick() {
         this.loading = !this.loading
+      },
+      clickHandle() {
+        this.$toast('hello world', {
+          autoClose: false,
+          duration: 3,
+          closeButtonText: 'exit',
+          status: 'error',
+          onClose() {
+            console.log('你关闭了toast')
+          }
+        })
       },
       handleInput(value) {
         if (value && Number(value) > 100) {
@@ -232,6 +246,7 @@
     .g-layout-footer
       border: 1px solid greenyellow
       text-align: center
+
     .g-layout-slider
       display: flex
       align-items: center
