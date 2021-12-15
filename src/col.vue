@@ -64,7 +64,7 @@
         const {span, offset} = this
         return [
             span && `col-${span}`,
-            offset && `col-${offset}`,
+            offset && `col-offset-${offset}`,
             ...this.createClasses()
           ]
       },
