@@ -1,7 +1,13 @@
 import Toast from './toast.vue'
 
 // console.log(Toast)
+// createContainer
 let div = document.createElement('div')
+div.style.position = "fixed"
+div.style.top = "8px"
+div.style.left = "50%"
+document.body.appendChild(div)
+
 Toast.install = function (Vue, options) {
   Vue.prototype.$toast = function(message, toastOptions) {
     const Constructor = Vue.extend(Toast)
@@ -10,11 +16,8 @@ Toast.install = function (Vue, options) {
     })
     toast.$slots.default = [message]
     toast.$mount()
-    div.style.position = "fixed"
-    div.style.top = "8px"
-    div.style.left = "50%"
     div.appendChild(toast.$el)
-    document.body.appendChild(div)
+
   }
 }
 export  {

@@ -15,6 +15,7 @@
 
 <script>
   import Icon from './icon.vue'
+
   export default {
     name: "toast",
     props: {
@@ -57,10 +58,10 @@
         })
       },
       execAutoClose() {
-        if(this.autoClose) {
+        if (this.autoClose) {
           setTimeout(() => {
             this.close()
-            if(typeof this.onClose === 'function') {
+            if (typeof this.onClose === 'function') {
               this.onClose(this)
             }
           }, this.duration * 1000)
@@ -68,7 +69,7 @@
       },
       closeToast() {
         this.close()
-        if(this.closeButtonText && typeof this.onClose === 'function') {
+        if (this.closeButtonText && typeof this.onClose === 'function') {
           this.onClose(this)
         }
       },
@@ -85,7 +86,16 @@
 </script>
 
 <style lang="sass" scoped>
+  @keyframes fade-in
+    0%
+      opacity: 0
+      transform: translateY(100%)
+    100%
+      opacity: 1
+      transform: translateY(0%)
+
   .g-toast
+    /*animation: fade-in 1s*/
     z-index: 1010
     padding: 8px
     text-align: center
@@ -93,6 +103,7 @@
 
 
     .g-toast-wrapper
+      animation: fade-in 1s
       display: inline-flex
       justify-content: center
       align-items: center
