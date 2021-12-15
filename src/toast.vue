@@ -53,7 +53,7 @@
         // 计算中间那根线的高度, 必须使用$nextTick才能获取这个值.
         this.$nextTick(() => {
           this.$refs.line.style.height = this.$refs.wrapper.getBoundingClientRect().height + 'px'
-          console.log(this.$refs.wrapper.getBoundingClientRect())
+          // console.log(this.$refs.wrapper.getBoundingClientRect())
         })
       },
       execAutoClose() {
@@ -86,13 +86,10 @@
 
 <style lang="sass" scoped>
   .g-toast
-    position: fixed
-    top: 8px
-    left: 0
     z-index: 1010
-    width: 100%
     padding: 8px
     text-align: center
+    transform: translateX(-50%)
 
 
     .g-toast-wrapper

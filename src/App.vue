@@ -129,7 +129,9 @@
     <!--      </g-layout>-->
     <!--    </div>-->
     <div class="component-group">
-      <g-button @click="clickHandle">Toast</g-button>
+      <g-button @click="clickHandle" type="success">success</g-button>
+      <g-button @click="clickHandle2" type="error">error</g-button>
+      <g-button @click="clickHandle3" type="warning">warning</g-button>
     </div>
 
   </div>
@@ -165,13 +167,35 @@
         this.loading = !this.loading
       },
       clickHandle() {
+        console.log(123)
         this.$toast('hello world', {
           autoClose: false,
           duration: 3,
           closeButtonText: 'exit',
+          status: 'success',
+          onClose() {
+            console.log('你success关闭了toast')
+          }
+        })
+      },
+      clickHandle2() {
+        this.$toast('error', {
+          autoClose: true,
+          duration: 3,
+          closeButtonText: '关闭',
           status: 'error',
           onClose() {
-            console.log('你关闭了toast')
+            console.log('你error关闭了toast')
+          }
+        })
+      },
+      clickHandle3() {
+        this.$toast('close', {
+          autoClose: false,
+          duration: 3,
+          status: 'warning',
+          onClose() {
+            console.log('你warning关闭了toast')
           }
         })
       },
