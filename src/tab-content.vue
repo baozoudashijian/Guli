@@ -6,7 +6,11 @@
 
 <script>
   export default {
-    name: "tab-content"
+    name: "tab-content",
+    inject: ['foo'],
+    created() {
+      console.log(this.foo, 'foo')
+    }
   }
 </script>
 
