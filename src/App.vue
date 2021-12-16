@@ -128,10 +128,22 @@
     <!--        <g-footer>footer</g-footer>-->
     <!--      </g-layout>-->
     <!--    </div>-->
+    <!--    <div class="component-group">-->
+    <!--      <g-button @click="clickHandle" type="success">success</g-button>-->
+    <!--      <g-button @click="clickHandle2" type="error">error</g-button>-->
+    <!--      <g-button @click="clickHandle3" type="warning">warning</g-button>-->
+    <!--    </div>-->
     <div class="component-group">
-      <g-button @click="clickHandle" type="success">success</g-button>
-      <g-button @click="clickHandle2" type="error">error</g-button>
-      <g-button @click="clickHandle3" type="warning">warning</g-button>
+      <g-tabs>
+        <g-tab-nav>
+          <g-tab-nav-item>用户管理</g-tab-nav-item>
+          <g-tab-nav-item>配置管理</g-tab-nav-item>
+        </g-tab-nav>
+        <g-tab-content>
+          <g-tab-content-panel>用户管理</g-tab-content-panel>
+          <g-tab-content-panel>配置管理</g-tab-content-panel>
+        </g-tab-content>
+      </g-tabs>
     </div>
 
   </div>
@@ -151,6 +163,11 @@
   import Content from './content.vue'
   import Footer from './footer.vue'
   import Slider from './slider.vue'
+  import Tabs from './tabs.vue'
+  import TabNav from './tab-nav.vue'
+  import TabNavItem from './tab-nav-item.vue'
+  import TabContent from './tab-content.vue'
+  import TabContentPanel from './tab-content-panel.vue'
 
   export default {
     name: "App",
@@ -228,7 +245,12 @@
       'g-header': Header,
       'g-content': Content,
       'g-footer': Footer,
-      'g-slider': Slider
+      'g-slider': Slider,
+      'g-tabs': Tabs,
+      'g-tab-nav': TabNav,
+      'g-tab-nav-item': TabNavItem,
+      'g-tab-content': TabContent,
+      'g-tab-content-panel': TabContentPanel,
     }
   }
 
