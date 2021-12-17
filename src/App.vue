@@ -138,6 +138,9 @@
         <g-tab-nav>
           <g-tab-nav-item name="user">用户管理</g-tab-nav-item>
           <g-tab-nav-item name="setting">配置管理</g-tab-nav-item>
+          <template v-slot:action>
+            Header content
+          </template>
         </g-tab-nav>
         <g-tab-content>
           <g-tab-content-panel name="user">用户管理</g-tab-content-panel>

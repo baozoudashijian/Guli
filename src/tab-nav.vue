@@ -1,6 +1,9 @@
 <template>
-  <div>
+  <div class="tab-nav">
     <slot></slot>
+    <div class="action">
+      <slot name="action"></slot>
+    </div>
   </div>
 </template>
 
@@ -14,6 +17,12 @@
   }
 </script>
 
-<style scoped>
-
+<style scoped lang="sass">
+  .tab-nav
+    display: flex
+    justify-content: flex-start
+    align-items: center
+    margin-bottom: 16px
+  .action
+    margin-left: auto
 </style>
