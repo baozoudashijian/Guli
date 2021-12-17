@@ -1,32 +1,33 @@
 <template>
   <div>
     <slot></slot>
-    <button @click="ck">点击</button>
   </div>
 </template>
 
 <script>
+  import Vue from 'vue'
+
   export default {
     name: "tabs",
+    props: {
+      selected: String
+    },
     data() {
       return {
-        provideData: {
-          foo: '123'
-        }
+        EventBus: new Vue()
       }
     },
     provide() {
       // 传一个对象才能inject
-      return this.provideData
+      return {EventBus: this.EventBus}
     },
-    methods: {
-      ck() {
-        this.provideData =  {...this.provideData, foo: '456'}
-      }
+    mounted() {
+      // EventBus上的update:seleted事件
+      this.EventBus.$emit('update:selected', this.selected)
+      // 当前Vue实例的update:seleted事件
+      this.$emit('update:selected', this.selected)
     },
-    beforeUpdate() {
-      console.log(this.provideData)
-    }
+    methods: {}
   }
 </script>
 

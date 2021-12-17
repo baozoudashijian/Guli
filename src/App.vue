@@ -134,14 +134,14 @@
     <!--      <g-button @click="clickHandle3" type="warning">warning</g-button>-->
     <!--    </div>-->
     <div class="component-group">
-      <g-tabs>
+      <g-tabs :selected.sync="selectedTab" @update:selected="yyy">
         <g-tab-nav>
-          <g-tab-nav-item>用户管理</g-tab-nav-item>
-          <g-tab-nav-item>配置管理</g-tab-nav-item>
+          <g-tab-nav-item name="user">用户管理</g-tab-nav-item>
+          <g-tab-nav-item name="setting">配置管理</g-tab-nav-item>
         </g-tab-nav>
         <g-tab-content>
-          <g-tab-content-panel>用户管理</g-tab-content-panel>
-          <g-tab-content-panel>配置管理</g-tab-content-panel>
+          <g-tab-content-panel name="user">用户管理</g-tab-content-panel>
+          <g-tab-content-panel name="setting">配置管理</g-tab-content-panel>
         </g-tab-content>
       </g-tabs>
     </div>
@@ -176,10 +176,14 @@
         loading: false,
         message: '',
         message2: '',
-        errMsg: ''
+        errMsg: '',
+        selectedTab: 'setting'
       }
     },
     methods: {
+      yyy(value) {
+        console.log(value)
+      },
       btnClick() {
         this.loading = !this.loading
       },

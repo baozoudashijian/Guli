@@ -7,9 +7,9 @@
 <script>
   export default {
     name: "tab-content",
-    inject: ['foo'],
+    inject: ['EventBus'],
     created() {
-      console.log(this.foo, 'foo')
+      console.log(this.EventBus, 'EventBus')
     }
   }
 </script>

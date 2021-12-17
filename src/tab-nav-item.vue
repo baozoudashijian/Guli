@@ -1,17 +1,24 @@
 <template>
-  <div>
+  <div @click="btnClick">
     <slot></slot>
-    <div>{{this.foo}}</div>
   </div>
 </template>
 
 <script>
   export default {
     name: "tab-nav-item",
-    inject: ['foo'],
-    created() {
-      console.log(this.foo, 'foo')
+    inject: ['EventBus'],
+    props: {
+      name: String
     },
+    created() {
+
+    },
+    methods: {
+      btnClick() {
+        this.EventBus.$emit('update:selected', this.name)
+      }
+    }
   }
 </script>
 

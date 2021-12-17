@@ -7,9 +7,9 @@
 <script>
   export default {
     name: "tab-nav",
-    inject: ['foo'],
+    inject: ['EventBus'],
     created() {
-      console.log(this.foo, 'foo')
+      console.log(this, 'EventBus')
     }
   }
 </script>

@@ -1,17 +1,32 @@
 <template>
-  <div>
+  <div v-if="active" :class="panelClass">
     <slot></slot>
-    <div>{{this.foo}}</div>
   </div>
 </template>
 
 <script>
-  import Button from'./button.vue'
   export default {
     name: "tab-content-panel",
-    inject: ['foo'],
+    inject: ['EventBus'],
+    props: {
+      name: String
+    },
+    data() {
+      return {
+        active: false
+      }
+    },
     created() {
-      console.log(this.foo, 'foo')
+      this.EventBus.$on('update:selected', (name) => {
+        this.active = name === this.name
+      })
+    },
+    computed: {
+      panelClass() {
+        return {
+          activeClass: this.active
+        }
+      }
     },
     methods: {
 
@@ -19,6 +34,9 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="sass">
+
+  .activeClass
+    background: #c00
 
 </style>
