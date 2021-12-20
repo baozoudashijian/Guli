@@ -180,12 +180,12 @@
         message: '',
         message2: '',
         errMsg: '',
-        selectedTab: 'setting'
+        selectedTab: 'user'
       }
     },
     methods: {
       yyy(value) {
-        console.log(value)
+        // console.log(value)
       },
       btnClick() {
         this.loading = !this.loading

@@ -30,7 +30,7 @@
     },
     methods: {
       btnClick() {
-        this.EventBus.$emit('update:selected', this.name)
+        this.EventBus.$emit('update:selected', this.name, this)
       }
     }
   }
@@ -38,7 +38,6 @@
 
 <style scoped lang="sass">
   .active
-    border: 1px solid green
     color: rgb(24, 144, 255)
   .tab-nav-item
     padding: 12px 0

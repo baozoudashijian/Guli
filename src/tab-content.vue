@@ -9,7 +9,6 @@
     name: "tab-content",
     inject: ['EventBus'],
     created() {
-      console.log(this.EventBus, 'EventBus')
     }
   }
 </script>

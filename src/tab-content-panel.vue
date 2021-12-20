@@ -37,6 +37,6 @@
 <style scoped lang="sass">
 
   .activeClass
-    background: #c00
+
 
 </style>
