@@ -9,7 +9,8 @@
     name: "tab-nav-item",
     inject: ['EventBus'],
     props: {
-      name: String
+      name: String,
+      disabled: Boolean
     },
     data() {
       return {
@@ -19,7 +20,8 @@
     computed: {
       navClass() {
         return {
-          active: this.active
+          active: this.active,
+          disabled: this.disabled
         }
       }
     },
@@ -30,13 +32,16 @@
     },
     methods: {
       btnClick() {
-        this.EventBus.$emit('update:selected', this.name, this)
+        if(!this.disabled) {
+          this.EventBus.$emit('update:selected', this.name, this)
+        }
       }
     }
   }
 </script>
 
 <style scoped lang="sass">
+
   .active
     color: rgb(24, 144, 255)
   .tab-nav-item
@@ -45,4 +50,7 @@
     cursor: pointer
     &:nth-child(1)
       margin-left: 0
+  .disabled
+    color: #00000040
+    cursor: not-allowed
 </style>

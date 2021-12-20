@@ -29,7 +29,6 @@
           if(vm.$options.name === "tab-nav") {
             vm.$children.forEach((vm) => {
               if(vm.$el.classList.contains('active')) {
-                console.log(123)
                 // 第二次设置触发根据哪个item有active
                 this.EventBus.$emit('update:selected', this.selected, vm)
               }

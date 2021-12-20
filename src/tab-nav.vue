@@ -17,10 +17,12 @@
     },
     mounted() {
       this.EventBus.$on('update:selected', (name, vm) => {
-        let position = vm.$el.getBoundingClientRect()
-        let parentPosition = vm.$parent.$el.getBoundingClientRect()
-        this.$refs.line.style.width = position.width + 'px'
-        this.$refs.line.style.left = position.left - parentPosition.left + 'px'
+        if(vm) {
+          let position = vm.$el.getBoundingClientRect()
+          let parentPosition = vm.$parent.$el.getBoundingClientRect()
+          this.$refs.line.style.width = position.width + 'px'
+          this.$refs.line.style.left = position.left - parentPosition.left + 'px'
+        }
       })
     }
   }
