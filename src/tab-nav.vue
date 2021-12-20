@@ -46,6 +46,7 @@
       bottom: 0
       height: 1px
       background: #40a9ff
+      transition: all 500ms
   .action
     margin-left: auto
 </style>
