@@ -1,5 +1,5 @@
 <template>
-  <div @click="btnClick" :class="navClass" class="tab-nav-item">
+  <div @click="btnClick" :class="navClass" class="tab-nav-item" :data-name="name">
     <slot></slot>
   </div>
 </template>

@@ -28,7 +28,7 @@ describe('Row', () => {
             el: divEle
         })
         setTimeout(() => {
-            // console.log(vm.$el.querySelector) // 为什么是undefined,我不太懂。
+            // console.log(vm.$el.querySelector, '123') // 为什么是undefined,我不太懂。
             const row = vm.$el.querySelector('.row')
             const col = vm.$el.querySelectorAll('.col')
             expect(getComputedStyle(row).marginLeft).to.equal('-10px')
@@ -37,8 +37,6 @@ describe('Row', () => {
             expect(getComputedStyle(col).paddingRight).to.equal('10px')
             vm.$el.remove()
             vm.$destroy()
-            console.log(vm)
-            done()
         }, 0);
         
     })
