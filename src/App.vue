@@ -133,23 +133,30 @@
     <!--      <g-button @click="clickHandle2" type="error">error</g-button>-->
     <!--      <g-button @click="clickHandle3" type="warning">warning</g-button>-->
     <!--    </div>-->
-    <div class="component-group">
-      <g-tabs :selected.sync="selectedTab" @update:selected="yyy">
-        <g-tab-nav>
-          <g-tab-nav-item name="user">用户管理</g-tab-nav-item>
-          <g-tab-nav-item name="setting">配置管理</g-tab-nav-item>
-          <g-tab-nav-item name="about" disabled>关于我们</g-tab-nav-item>
-          <template v-slot:action>
-            Header content
-          </template>
-        </g-tab-nav>
-        <g-tab-content>
-          <g-tab-content-panel name="user">用户管理</g-tab-content-panel>
-          <g-tab-content-panel name="setting">配置管理</g-tab-content-panel>
-          <g-tab-content-panel name="about">关于我们</g-tab-content-panel>
-        </g-tab-content>
-      </g-tabs>
-    </div>
+    <!--    <div class="component-group">-->
+    <!--      <g-tabs :selected.sync="selectedTab" @update:selected="yyy">-->
+    <!--        <g-tab-nav>-->
+    <!--          <g-tab-nav-item name="user">用户管理</g-tab-nav-item>-->
+    <!--          <g-tab-nav-item name="setting">配置管理</g-tab-nav-item>-->
+    <!--          <g-tab-nav-item name="about" disabled>关于我们</g-tab-nav-item>-->
+    <!--          <template v-slot:action>-->
+    <!--            Header content-->
+    <!--          </template>-->
+    <!--        </g-tab-nav>-->
+    <!--        <g-tab-content>-->
+    <!--          <g-tab-content-panel name="user">用户管理</g-tab-content-panel>-->
+    <!--          <g-tab-content-panel name="setting">配置管理</g-tab-content-panel>-->
+    <!--          <g-tab-content-panel name="about">关于我们</g-tab-content-panel>-->
+    <!--        </g-tab-content>-->
+    <!--      </g-tabs>-->
+    <!--    </div>-->
+    <g-popover>
+      <template slot="content">
+        这是一段内容
+      </template>
+      <g-button type="primary">Click me</g-button>
+    </g-popover>
+
 
   </div>
 
@@ -173,6 +180,7 @@
   import TabNavItem from './tab-nav-item.vue'
   import TabContent from './tab-content.vue'
   import TabContentPanel from './tab-content-panel.vue'
+  import Popover from './popover.vue'
 
   export default {
     name: "App",
@@ -260,6 +268,7 @@
       'g-tab-nav-item': TabNavItem,
       'g-tab-content': TabContent,
       'g-tab-content-panel': TabContentPanel,
+      'g-popover': Popover
     }
   }
 

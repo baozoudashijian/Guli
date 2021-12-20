@@ -53,6 +53,8 @@
             background: var(--button-bg)
             vertical-align: middle
             margin-left: .1em
+            outline: none
+            -webkit-appearance: button
 
 
             &:hover
@@ -80,12 +82,27 @@
                 margin-right: .2em
         .btn-primary
             background-color: var(--primary)
+        .btn-primary:active
+            background-color: var(--primary)
+            opacity: 0.8
         .btn-success
             background-color: var(--success)
+        .btn-success:active
+            background-color: var(--success)
+            opacity: 0.8
         .btn-info
             background-color: var(--info)
+        .btn-info:active
+            background-color: var(--info)
+            opacity: 0.8
         .btn-warning
             background-color: var(--warning)
+        .btn-warning:active
+            background-color: var(--warning)
+            opacity: 0.8
         .btn-danger
             background-color: var(--danger)
+        .btn-danger:active
+            background-color: var(--danger)
+            opacity: 0.8
 </style>
