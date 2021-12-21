@@ -7,7 +7,9 @@
     "auto-test": "parcel watch test/* --no-cache && karma start",
     "test": "parcel build test/* --no-cache --no-minify && karma start --single-run",
     "build": "./node_modules/.bin/parcel build public/index.html --no-cache --public-url ./",
-    "start": "./node_modules/.bin/parcel public/index.html --no-cache"
+    "start": "./node_modules/.bin/parcel public/index.html --no-cache",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "repository": {
     "type": "git",
@@ -40,6 +42,7 @@
     "sinon": "6.0.1",
     "sinon-chai": "^3.7.0",
     "vue-template-compiler": "^2.6.14",
+    "vuepress": "^1.8.3",
     "yarn": "^1.22.17"
   }
 }
