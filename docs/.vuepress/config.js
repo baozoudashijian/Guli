@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Hello Guli UI',
   description: 'Just playing around',
-  base: '/',
+  base: '/gulidocs/',
   themeConfig: {
     sidebar: [
       {
