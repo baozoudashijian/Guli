@@ -30,10 +30,11 @@
             let {left, top} = this.$refs.triggerWrapper.getBoundingClientRect()
             document.body.appendChild(this.$refs.contentWrapper)
             // 获取selfPosition全部是0 使用nextTick解决这个问题
-            let selfPosition = this.$refs.contentWrapper.getBoundingClientRect()
+            // let selfPosition = this.$refs.contentWrapper.getBoundingClientRect()
+            // selfPosition.height 这个高度首次获取不对
             this.$refs.contentWrapper.style.left = left + window.scrollX + 'px'
-            console.log(selfPosition)
-            this.$refs.contentWrapper.style.top = top - selfPosition.height + window.scrollY + 'px'
+            let xheight = window.getComputedStyle(this.$refs.contentWrapper,null).getPropertyValue("height")
+            this.$refs.contentWrapper.style.top = top - parseInt(xheight) + window.scrollY + 'px'
             document.addEventListener('click', this.eventHandle)
           })
         }
@@ -45,7 +46,7 @@
           // this.$refs.triggerWrapper.click()
           // console.log(this.$refs.triggerWrapper.click);
           // 触发doucument事件会删除所有的contentWrapper 这是不对的
-          document.body.removeChild(this.$refs.contentWrapper)
+          this.eventHandle()
         }
       }
     }
@@ -60,4 +61,5 @@
     position: absolute
     padding: 12px 0
     box-sizing: border-box
+    overflow: hidden
 </style>
