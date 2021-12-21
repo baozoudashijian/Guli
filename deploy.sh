@@ -6,7 +6,7 @@ set -e
 # 生成静态文件
 npm run docs:build
 ​
-# 进入生成的文件夹2
+# 进入生成的文件夹3
 cd docs/.vuepress/dist
 ​
 git init
@@ -14,6 +14,6 @@ git add -A
 git commit -m 'deploy'
 ​
 # 如果发布到 https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:baozoudashijian/gulidocs.git master:gh-pages
+git push -f git@github.com:baozoudashijian/Guli.git master:gh-pages
 
 cd -
