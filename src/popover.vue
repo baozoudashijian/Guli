@@ -27,14 +27,16 @@
         this.visible = !this.visible
         if (this.visible) {
           this.$nextTick(() => {
-            let {left, top} = this.$refs.triggerWrapper.getBoundingClientRect()
+            let {left, top, width} = this.$refs.triggerWrapper.getBoundingClientRect()
             document.body.appendChild(this.$refs.contentWrapper)
             // 获取selfPosition全部是0 使用nextTick解决这个问题
             // let selfPosition = this.$refs.contentWrapper.getBoundingClientRect()
             // selfPosition.height 这个高度首次获取不对
-            this.$refs.contentWrapper.style.left = left + window.scrollX + 'px'
+            console.log(width / 2);
+            this.$refs.contentWrapper.style.left = left + window.scrollX + width/2 + 'px'
             let xheight = window.getComputedStyle(this.$refs.contentWrapper,null).getPropertyValue("height")
             this.$refs.contentWrapper.style.top = top - parseInt(xheight) + window.scrollY + 'px'
+            this.$refs.contentWrapper.style.transform = `translateX(-50%)`
             document.addEventListener('click', this.eventHandle)
           })
         }
@@ -62,4 +64,5 @@
     padding: 12px 0
     box-sizing: border-box
     overflow: hidden
+
 </style>
