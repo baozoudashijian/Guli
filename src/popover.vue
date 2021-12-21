@@ -23,20 +23,23 @@
         document.body.removeChild(this.$refs.contentWrapper)
         document.removeEventListener('click', this.eventHandle)
       },
+      calcPosition() {
+        let {left, top, width} = this.$refs.triggerWrapper.getBoundingClientRect()
+        let _margin = 16
+        document.body.appendChild(this.$refs.contentWrapper)
+        // 获取selfPosition全部是0 使用nextTick解决这个问题
+        // let selfPosition = this.$refs.contentWrapper.getBoundingClientRect()
+        // selfPosition.height 这个高度首次获取不对
+        this.$refs.contentWrapper.style.left = left + window.scrollX + width/2 + 'px'
+        let xheight = window.getComputedStyle(this.$refs.contentWrapper,null).getPropertyValue("height")
+        this.$refs.contentWrapper.style.top = top - parseInt(xheight) + window.scrollY - _margin + 'px'
+        this.$refs.contentWrapper.style.transform = `translateX(-50%)`
+      },
       btnClick(e) {
         this.visible = !this.visible
         if (this.visible) {
           this.$nextTick(() => {
-            let {left, top, width} = this.$refs.triggerWrapper.getBoundingClientRect()
-            document.body.appendChild(this.$refs.contentWrapper)
-            // 获取selfPosition全部是0 使用nextTick解决这个问题
-            // let selfPosition = this.$refs.contentWrapper.getBoundingClientRect()
-            // selfPosition.height 这个高度首次获取不对
-            console.log(width / 2);
-            this.$refs.contentWrapper.style.left = left + window.scrollX + width/2 + 'px'
-            let xheight = window.getComputedStyle(this.$refs.contentWrapper,null).getPropertyValue("height")
-            this.$refs.contentWrapper.style.top = top - parseInt(xheight) + window.scrollY + 'px'
-            this.$refs.contentWrapper.style.transform = `translateX(-50%)`
+            this.calcPosition()
             document.addEventListener('click', this.eventHandle)
           })
         }
@@ -61,8 +64,10 @@
     position: relative
   .popover-content
     position: absolute
-    padding: 12px 0
+    padding: 12px 16px
     box-sizing: border-box
     overflow: hidden
+    box-shadow: 0 3px 6px -4px #0000001f, 0 6px 16px #00000014, 0 9px 28px 8px #0000000d
+    border-radius: 2px
 
 </style>
