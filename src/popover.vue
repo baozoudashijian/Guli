@@ -32,6 +32,7 @@
             // 获取selfPosition全部是0 使用nextTick解决这个问题
             let selfPosition = this.$refs.contentWrapper.getBoundingClientRect()
             this.$refs.contentWrapper.style.left = left + window.scrollX + 'px'
+            console.log(selfPosition)
             this.$refs.contentWrapper.style.top = top - selfPosition.height + window.scrollY + 'px'
             document.addEventListener('click', this.eventHandle)
           })
@@ -41,8 +42,10 @@
           // 如果是triggerWrapper中的内容 且visable为false的情况下模拟点击一下triggerWrapper
           // triggerWrapper冒泡触发document点击事件来删除dom
           // 注: document.click没有这个事件
-          this.$refs.triggerWrapper.click()
-          console.log(this.$refs.triggerWrapper.click);
+          // this.$refs.triggerWrapper.click()
+          // console.log(this.$refs.triggerWrapper.click);
+          // 触发doucument事件会删除所有的contentWrapper 这是不对的
+          document.body.removeChild(this.$refs.contentWrapper)
         }
       }
     }
@@ -55,4 +58,6 @@
     position: relative
   .popover-content
     position: absolute
+    padding: 12px 0
+    box-sizing: border-box
 </style>
