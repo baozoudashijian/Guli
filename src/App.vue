@@ -150,12 +150,22 @@
     <!--        </g-tab-content>-->
     <!--      </g-tabs>-->
     <!--    </div>-->
-    <g-popover>
-      <template slot="content">
-        这是一段内容
-      </template>
-      <g-button type="primary">Click me</g-button>
-    </g-popover>
+    <div style="overflow: hidden" @click="testClick">
+      <div style="height: 2000px"></div>
+      <g-popover>
+        <template slot="content">
+          这是一段内容
+        </template>
+        <g-button type="primary">Click me</g-button>
+      </g-popover>
+      <g-popover>
+        <template slot="content">
+          这是一段内容
+        </template>
+        <g-button type="primary">Click me</g-button>
+      </g-popover>
+    </div>
+
 
 
   </div>
@@ -194,6 +204,9 @@
       }
     },
     methods: {
+      testClick() {
+        console.log('stop')
+      },
       yyy(value) {
         // console.log(value)
       },
