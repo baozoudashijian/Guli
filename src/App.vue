@@ -151,8 +151,14 @@
     <!--      </g-tabs>-->
     <!--    </div>-->
     <div style="overflow: hidden" @click="testClick">
-      <div style="height: 2000px"></div>
-      <g-popover style="margin-left: 1000px">
+      <div style="height: 200px"></div>
+      <g-popover position="left" style="margin-left: 300px">
+        <template slot="content">
+          left
+        </template>
+        <g-button type="primary" style="color: #fff">Click me</g-button>
+      </g-popover>
+      <g-popover>
         <template slot="content">
 
           一段内容这是段内容这是一段内容这是段内容这是一段内容这是段内容这是一段内容这是段内容这是一段内容这是段内容这是一段内容这是段内容这是一段内容这是段内容这
@@ -160,12 +166,20 @@
         </template>
         <g-button type="primary" style="color: #fff">Click me</g-button>
       </g-popover>
-      <g-popover>
+      
+      <g-popover position="bottom">
         <template slot="content">
-          这是一段内容
+          bottom
         </template>
         <g-button type="primary" style="color: #fff">Click me</g-button>
       </g-popover>
+      <g-popover position="right">
+        <template slot="content">
+          right
+        </template>
+        <g-button type="primary" style="color: #fff">Click me</g-button>
+      </g-popover>
+      
     </div>
 
 
