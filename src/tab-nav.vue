@@ -17,7 +17,7 @@
     },
     mounted() {
       this.EventBus.$on('update:selected', (name, vm) => {
-        if(vm) {
+        if (vm) {
           let position = vm.$el.getBoundingClientRect()
           let parentPosition = vm.$parent.$el.getBoundingClientRect()
           this.$refs.line.style.width = position.width + 'px'
@@ -43,12 +43,14 @@
       left: 0
       bottom: 0
       border-bottom: 1px solid #f0f0f0
+
     .line
       position: absolute
       bottom: 0
       height: 1px
       background: #40a9ff
       transition: all 500ms
-  .action
-    margin-left: auto
+
+    .action
+      margin-left: auto
 </style>

@@ -32,7 +32,7 @@
     },
     methods: {
       btnClick() {
-        if(!this.disabled) {
+        if (!this.disabled) {
           this.EventBus.$emit('update:selected', this.name, this)
         }
       }
@@ -44,13 +44,16 @@
 
   .active
     color: rgb(24, 144, 255)
-  .tab-nav-item
-    padding: 12px 0
-    margin-left: 32px
-    cursor: pointer
-    &:nth-child(1)
-      margin-left: 0
-  .disabled
-    color: #00000040
-    cursor: not-allowed
+
+    .tab-nav-item
+      padding: 12px 0
+      margin-left: 32px
+      cursor: pointer
+
+      &:nth-child(1)
+        margin-left: 0
+
+    .disabled
+      color: #00000040
+      cursor: not-allowed
 </style>

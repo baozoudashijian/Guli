@@ -16,7 +16,7 @@
     },
     mounted() {
       this.$children.forEach((vm) => {
-        if(vm.$options.name === 'slider') {
+        if (vm.$options.name === 'slider') {
           this.layoutClass.hasSlider = true
         }
       })
@@ -29,6 +29,7 @@
     display: flex
     flex-direction: column
     flex: 1 1 auto
-  .hasSlider
-    flex-direction: row
+
+    .hasSlider
+      flex-direction: row
 </style>

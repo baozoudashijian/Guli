@@ -13,6 +13,7 @@
 
 <script>
   import Icon from './icon.vue'
+
   export default {
     name: "collapse-panel",
     inject: ['EventBus'],
@@ -32,7 +33,7 @@
     mounted() {
       this.EventBus.$on('update:selected', (selected) => {
         // console.log(selected, 'selected')
-        if(selected.includes(this.name)) {
+        if (selected.includes(this.name)) {
           this.isShow = true
           this.iconName = "arrow-down"
         } else {
@@ -53,17 +54,21 @@
   .collapse-panel
     &:first-child > .title
       padding-top: 0
+
     &:last-child > .title
-      /*padding-bottom: 0*/
-      /*border-bottom: none*/
+    /*padding-bottom: 0*/
+    /*border-bottom: none*/
+
     .title
       display: flex
       align-items: center
       padding: 10px 0
       border-bottom: 1px solid #ccc
       cursor: pointer
+
       .iconClass
         margin-left: auto
+
     .content
       transition: all 1s
 </style>

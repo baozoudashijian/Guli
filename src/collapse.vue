@@ -6,6 +6,7 @@
 
 <script>
   import Vue from 'vue';
+
   export default {
     name: "collapse",
     props: {
@@ -26,10 +27,10 @@
       console.log(this.accordion)
       this.EventBus.$on('add:selected', (name) => {
         // !this.selected.includes(name) && this.selected.push(name)
-        if(this.accordion) {
+        if (this.accordion) {
           this.selected = []
         }
-        if(!this.selected.includes(name)) {
+        if (!this.selected.includes(name)) {
           this.selected.push(name)
         } else {
           this.selected.splice(this.selected.indexOf(name), 1)

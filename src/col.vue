@@ -5,12 +5,12 @@
     </div>
   </div>
 </template>
-<script>  
+<script>
   let validator = (value) => {
     let keys = Object.keys(value)
     let valid = true
     keys.forEach(key => {
-      if(!['span', 'offset'].includes(key)){
+      if (!['span', 'offset'].includes(key)) {
         valid = false
       }
     })
@@ -49,9 +49,9 @@
     methods: {
       createClasses() {
         let classArray = []
-        let plateform = ['ipad','narrowPc','pc','widePc']
+        let plateform = ['ipad', 'narrowPc', 'pc', 'widePc']
         plateform.map((item) => {
-          if(this[item]) {
+          if (this[item]) {
             this[item].span && classArray.push(`col-${item}-${this[item].span}`)
             this[item].offset && classArray.push(`col-${item}-offset-${this[item].offset}`)
           }
@@ -63,10 +63,10 @@
       colClass() {
         const {span, offset} = this
         return [
-            span && `col-${span}`,
-            offset && `col-offset-${offset}`,
-            ...this.createClasses()
-          ]
+          span && `col-${span}`,
+          offset && `col-offset-${offset}`,
+          ...this.createClasses()
+        ]
       },
       gutterClass() {
         const {gutter} = this
@@ -84,9 +84,9 @@
 </script>
 <style lang="sass" scoped>
 
-    .content
-      width: 100%
-      height: 100%
+  .content
+    width: 100%
+    height: 100%
     @media (min-width: 375px)
       @for $i from 1 through 24
         .col-#{$i}
