@@ -1,6 +1,14 @@
 <template>
    <div class="cascader">
-     <cacader-x v-for="item in source" :source-item="item"></cacader-x>
+     <div class="trigger">
+       <slot></slot>
+     </div>
+     <div class="popover">
+       <div v-for="item in source">
+         <cacader-x :source-item="item"></cacader-x>
+       </div>
+     </div>
+
    </div>
 
 </template>
@@ -22,5 +30,6 @@
 </script>
 
 <style scoped lang="sass">
-
+  .cascader
+    display: flex
 </style>
