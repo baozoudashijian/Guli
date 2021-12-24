@@ -200,7 +200,9 @@
     <!--        </g-collapse-panel>-->
     <!--      </g-collapse>-->
     <!--    </div>-->
-
+    <div class="component-group">
+      <g-cascader :source="source"></g-cascader>
+    </div>
 
   </div>
 
@@ -227,6 +229,7 @@
   import Popover from './popover.vue'
   import Collapse from './collapse.vue'
   import CollapsePanel from './collapse-panel.vue'
+  import Cascader from './cascader.vue'
 
   export default {
     name: "App",
@@ -236,7 +239,40 @@
         message: '',
         message2: '',
         errMsg: '',
-        selectedTab: 'user'
+        selectedTab: 'user',
+        source: [{
+          name: '浙江',
+          children: [
+            {
+              name: '杭州',
+              children: [
+                {name: '上城'},
+                {name: '下城'},
+                {name: '江干'},
+              ]
+            },
+            {
+              name: '嘉兴',
+              children: [
+                {name: '南湖'},
+                {name: '秀洲'},
+                {name: '嘉善'},
+              ]
+            },
+          ]
+        }, {
+          name: '福建',
+          children: [
+            {
+              name: '福州',
+              children: [
+                {name: '鼓楼'},
+                {name: '台江'},
+                {name: '仓山'},
+              ]
+            },
+          ]
+        }]
       }
     },
     methods: {
@@ -323,6 +359,7 @@
       'g-popover': Popover,
       'g-collapse': Collapse,
       'g-collapse-panel': CollapsePanel,
+      'g-cascader': Cascader
     }
   }
 
