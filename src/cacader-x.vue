@@ -1,7 +1,7 @@
 <template>
   <div class="cascaderX" >
     <div class="left">
-      <div v-for="(sourceItem,index) in items" :key="index" @click="leftSelected = sourceItem">
+      <div v-for="(sourceItem,index) in items" :key="index" @click="onClickLabel(sourceItem)">
         {{sourceItem.name}}
         <div class="icon">
           <g-icon icon="arrow-right" v-if="sourceItem.children"></g-icon>
@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="right" v-if="rightItems">
-        <cascader-x  :items="rightItems"></cascader-x>
+        <cascader-x :level="level+1" :selected="selected"  :items="rightItems" @update:selected="onUpdateSelected"></cascader-x>
       </div>
   </div>
 
@@ -19,7 +19,19 @@
   import Icon from './icon.vue'
   export default {
     name: "cascader-x",
-    props: ['items'],
+    props: {
+      items: {
+        type: Array
+      },
+      selected: {
+        type: Array,
+        default: () => []
+      },
+      level: {
+        type: Number,
+        default: 0
+      }
+    },
     data() {
       return {
         leftSelected: null
@@ -27,15 +39,28 @@
     },
     computed: {
       rightItems() {
-        if(this.leftSelected && this.leftSelected.children) {
-          return this.leftSelected.children
-        } else {
-          return null
-        }
+        // if(this.selected[this.level] && this.selected[this.level].children) {
+          return this.selected[this.level] && this.selected[this.level].children || null
+        // } else {
+        //   return null
+        // }
       }
     },
     components: {
       'g-icon': Icon
+    },
+    methods: {
+      onClickLabel(sourceItem) {
+        // selected: 选中的数据
+        // 一般我们使用深拷贝
+        let copy = JSON.parse(JSON.stringify(this.selected))
+        copy[this.level] = sourceItem
+        this.$emit('update:selected', copy)
+      },
+      onUpdateSelected(copy) {
+        // 其实他和cascader.vue中的文件的方法一样。
+        this.$emit('update:selected', copy)
+      }
     }
   }
 </script>

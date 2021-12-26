@@ -7,7 +7,7 @@
       <div class="content">
         <div class="menu">
           <div class="layer">
-            <cacader-x :items="source"></cacader-x>
+            <cacader-x :selected="selected" :items="source" @update:selected="onUpdateSelected"></cacader-x>
           </div>
         </div>
       </div>
@@ -23,19 +23,23 @@
   export default {
     name: "cascader",
     props: {
-      source: Array
+      source: Array,
+      selected: Array
     },
     data() {
       return {
+        
       }
     },
     components: {
       'cacader-x': CascaderX
     },
     methods: {
+      onUpdateSelected(copy) {
+        this.$emit('update:selected', copy)
+      }
     },
     mounted() {
-      console.log(this.source, 'source')
     }
   }
 </script>
