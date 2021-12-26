@@ -43,6 +43,7 @@
 <style scoped lang="sass">
   .cascaderX
     display: flex
+    cursor: pointer
     .left 
       padding: 10px
       border: 1px solid #cc0000
@@ -50,10 +51,13 @@
         display: flex
         justify-content: center
         align-items: center
+        padding: .5em 0
         .icon 
           display: flex
           justify-content: center
           align-items: center
+          margin-left: 1em
+          transform: scale(1.5)
     .right
       margin-left: -1px
 
