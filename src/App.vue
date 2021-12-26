@@ -201,7 +201,9 @@
     <!--      </g-collapse>-->
     <!--    </div>-->
     <div class="component-group">
-      <g-cascader :source="source" ></g-cascader>
+      <g-cascader :source="source" >
+        <g-input></g-input>
+      </g-cascader>
     </div>
 
   </div>
@@ -272,7 +274,16 @@
               ]
             },
           ]
-        }]
+        },{
+          name: '北京',
+            children: [
+              {
+                name: '北京',
+              },
+            ]
+          },{
+          name: '上海'
+          }]
       }
     },
     methods: {

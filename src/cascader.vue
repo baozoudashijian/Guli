@@ -1,9 +1,9 @@
 <template>
   <div class="cascader">
-    <div class="trigger">
+    <div class="trigger" @click="visible = !visible">
       <slot></slot>
     </div>
-    <div class="popover">
+    <div class="popover" v-if="visible">
       <div class="content">
         <div class="menu">
           <div class="layer">
@@ -27,7 +27,8 @@
     },
     data() {
       return {
-        selected: []
+        selected: [],
+        visible: false
       }
     },
     components: {

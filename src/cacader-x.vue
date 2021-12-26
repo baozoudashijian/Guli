@@ -75,7 +75,7 @@
       border: 1px solid #cc0000
       > div
         display: flex
-        justify-content: center
+        justify-content: flex-start
         align-items: center
         padding: .5em 0
         .icon 
