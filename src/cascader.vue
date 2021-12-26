@@ -46,6 +46,5 @@
       .content
         display: flex
         .menu
-          border: 1px solid #3eaf7c
 
 </style>
