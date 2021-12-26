@@ -23,12 +23,11 @@
   export default {
     name: "cascader",
     props: {
-      source: Array,
-      selected: Array
+      source: Array
     },
     data() {
       return {
-        
+        selected: []
       }
     },
     components: {
@@ -36,7 +35,7 @@
     },
     methods: {
       onUpdateSelected(copy) {
-        this.$emit('update:selected', copy)
+        this.selected = copy
       }
     },
     mounted() {

@@ -201,7 +201,7 @@
     <!--      </g-collapse>-->
     <!--    </div>-->
     <div class="component-group">
-      <g-cascader :selected="selected" :source="source" @update:selected="onUpdateSelected"></g-cascader>
+      <g-cascader :source="source" ></g-cascader>
     </div>
 
   </div>
@@ -272,15 +272,10 @@
               ]
             },
           ]
-        }],
-        selected: []
+        }]
       }
     },
     methods: {
-      onUpdateSelected(copy) {
-        console.log(copy, '=> copy')
-        this.selected = copy
-      },
       testClick() {
         console.log('stop')
       },
