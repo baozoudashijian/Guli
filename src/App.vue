@@ -202,7 +202,6 @@
     <!--    </div>-->
     <div class="component-group">
       <g-cascader :source="source" >
-        <g-input></g-input>
       </g-cascader>
     </div>
 
