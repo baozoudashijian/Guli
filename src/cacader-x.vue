@@ -54,6 +54,7 @@
         // selected: 选中的数据
         // 一般我们使用深拷贝
         let copy = JSON.parse(JSON.stringify(this.selected))
+        copy.splice(this.level)
         copy[this.level] = sourceItem
         this.$emit('update:selected', copy)
       },
