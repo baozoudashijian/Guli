@@ -231,6 +231,7 @@
   import Collapse from './collapse.vue'
   import CollapsePanel from './collapse-panel.vue'
   import Cascader from './cascader.vue'
+  import Sql from './db.js'
 
   export default {
     name: "App",
@@ -284,6 +285,9 @@
           name: '上海'
           }]
       }
+    },
+    created() {
+      console.log(Sql, '=> 数据库数据')
     },
     methods: {
       testClick() {
