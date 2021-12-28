@@ -231,8 +231,13 @@
   import Collapse from './collapse.vue'
   import CollapsePanel from './collapse-panel.vue'
   import Cascader from './cascader.vue'
-  import Sql from './db.js'
+  import DB from './db.js'
 
+  function  ajax(parentId = 0) {
+    setTimeout(() => {
+      return DB.filter((item) => item.parent_id == parentId)
+    }, 2000)
+  }
   export default {
     name: "App",
     data() {
@@ -242,52 +247,11 @@
         message2: '',
         errMsg: '',
         selectedTab: 'user',
-        source: [{
-          name: '浙江',
-          children: [
-            {
-              name: '杭州',
-              children: [
-                {name: '上城'},
-                {name: '下城'},
-                {name: '江干'},
-              ]
-            },
-            {
-              name: '嘉兴',
-              children: [
-                {name: '南湖'},
-                {name: '秀洲'},
-                {name: '嘉善'},
-              ]
-            },
-          ]
-        }, {
-          name: '福建',
-          children: [
-            {
-              name: '福州',
-              children: [
-                {name: '鼓楼'},
-                {name: '台江'},
-                {name: '仓山'},
-              ]
-            },
-          ]
-        },{
-          name: '北京',
-            children: [
-              {
-                name: '北京',
-              },
-            ]
-          },{
-          name: '上海'
-          }]
+        source: ajax()
       }
     },
     created() {
-      console.log(Sql, '=> 数据库数据')
+
     },
     methods: {
       testClick() {

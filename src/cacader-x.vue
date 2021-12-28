@@ -70,9 +70,11 @@
   .cascaderX
     display: flex
     cursor: pointer
-    .left 
+    .left
       padding: 10px
       border: 1px solid #cc0000
+      max-height: 180px
+      overflow-y: scroll
       > div
         display: flex
         justify-content: flex-start
