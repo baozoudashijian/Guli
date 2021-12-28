@@ -1,6 +1,6 @@
 <template>
   <div class="cascaderX" >
-    <div class="left">
+    <div class="left" v-if="items.length">
       <div v-for="(sourceItem,index) in items" :key="index" @click="onClickLabel(sourceItem)">
         {{sourceItem.name}}
         <div class="icon">

@@ -233,11 +233,6 @@
   import Cascader from './cascader.vue'
   import DB from './db.js'
 
-  function  ajax(parentId = 0) {
-    setTimeout(() => {
-      return DB.filter((item) => item.parent_id == parentId)
-    }, 2000)
-  }
   export default {
     name: "App",
     data() {
@@ -247,13 +242,22 @@
         message2: '',
         errMsg: '',
         selectedTab: 'user',
-        source: ajax()
+        source: []
       }
     },
     created() {
-
+      this.ajax(0, this.callback)
     },
     methods: {
+      callback(data) {
+        console.log(data, 'data')
+        this.source = data
+      },
+      ajax(parentId = 0, cb) {
+        setTimeout(() => {
+          cb(DB.filter((item) => item.parent_id == parentId))
+        }, 2000)
+      },
       testClick() {
         console.log('stop')
       },
@@ -267,7 +271,6 @@
         this.loading = !this.loading
       },
       clickHandle() {
-        console.log(123)
         this.$toast('hello world', {
           autoClose: false,
           duration: 3,
