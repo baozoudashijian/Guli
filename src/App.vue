@@ -201,7 +201,11 @@
     <!--      </g-collapse>-->
     <!--    </div>-->
     <div class="component-group">
-      <g-cascader :source="source" >
+      <g-cascader
+              :source="source"
+              :loadData="loadData"
+              @update:source="updateSource"
+      >
       </g-cascader>
     </div>
 
@@ -246,16 +250,20 @@
       }
     },
     created() {
-      this.ajax(0, this.callback)
+
     },
     methods: {
+      updateSource(newSource) {
+        this.source = newSource
+      },
       callback(data) {
         console.log(data, 'data')
         this.source = data
       },
-      ajax(parentId = 0, cb) {
+      loadData(parentId = 0, updateSource) {
         setTimeout(() => {
-          cb(DB.filter((item) => item.parent_id == parentId))
+          let result = DB.filter((item) => item.parent_id == parentId)
+          updateSource(result, parentId)
         }, 2000)
       },
       testClick() {

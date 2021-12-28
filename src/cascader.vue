@@ -1,6 +1,6 @@
 <template>
   <div class="cascader">
-    <div class="trigger" @click="visible = !visible">
+    <div class="trigger" @click="trigger">
       <slot></slot>
       <g-input :value="selectName"></g-input>
     </div>
@@ -25,7 +25,10 @@
   export default {
     name: "cascader",
     props: {
-      source: Array
+      source: Array,
+      loadData: {
+        type: Function
+      }
     },
     data() {
       return {
@@ -44,8 +47,35 @@
     },
     methods: {
       onUpdateSelected(copy) {
+        // selected => ['level1', 'level2', 'level3']
+        // 我点击选中的一定是数组的最后一项,因为后面的会被删除掉
+        console.log(copy, '=> selected')
         this.selected = copy
-        console.log(this.$slots)
+        let id = copy[copy.length - 1].id
+        this.loadData(id, this.updateSource)
+      },
+      updateSource(result, parentId) {
+        // todo 插入正常后的source
+        let copy = JSON.parse(JSON.stringify(this.source))
+        console.log(copy, '=> copy')
+        if(copy.length > 0) {
+          // 根据parentId去找到result该放在哪个位置设置children
+          copy.forEach((item) => {
+            if(item.id === parentId) {
+              item.children = result
+            }
+          })
+        } else {
+          copy = JSON.parse(JSON.stringify(result))
+        }
+        this.$emit('update:source', copy)
+      }
+      ,
+      trigger() {
+        this.visible = !this.visible
+        if (this.visible) {
+          this.loadData(0, this.updateSource)
+        }
       }
     },
     mounted() {
@@ -58,6 +88,7 @@
     .popover
       .content
         display: flex
+
         .menu
 
 </style>
