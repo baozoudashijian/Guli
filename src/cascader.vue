@@ -49,7 +49,6 @@
       onUpdateSelected(copy) {
         // selected => ['level1', 'level2', 'level3']
         // 我点击选中的一定是数组的最后一项,因为后面的会被删除掉
-        console.log(copy, '=> selected')
         this.selected = copy
         let id = copy[copy.length - 1].id
         this.loadData(id, this.updateSource)
@@ -57,14 +56,52 @@
       updateSource(result, parentId) {
         // todo 插入正常后的source
         let copy = JSON.parse(JSON.stringify(this.source))
-        console.log(copy, '=> copy')
+        console.log(copy, 'copy')
         if(copy.length > 0) {
           // 根据parentId去找到result该放在哪个位置设置children
-          copy.forEach((item) => {
-            if(item.id === parentId) {
-              item.children = result
+          let complex = (children, id) => {
+            let haschildren = []
+            let hasNoChildren = []
+            console.log(children, 'children')
+            children.forEach((item) => {
+              console.log(item, 'item')
+              if(item.children) {
+                item.children.map(item => haschildren.push(item))
+              } else {
+                hasNoChildren.push(item)
+              }
+            })
+            let final = simpeFind(hasNoChildren, id)
+            if(final) {
+              console.log(id, 'id')
+              console.log(final, 'final')
+              console.log(result, 'result');
+              final.children = result
+              return final
+            }else{
+              console.log(haschildren, 'haschildren')
+              if(haschildren.length > 0) {
+                complex(haschildren, id)
+              } else {
+                return null
+              }
             }
-          })
+          }
+          let simpeFind = (children, id) => {
+            for(let i=0; i<children.length; i++) {
+              if(children[i].id == id) {
+                return children[i]
+              }
+            }
+            // children.forEach((item) => {
+            //   if(item.id == id) {
+            //     console.log(item, 'item')
+            //     return item
+            //   }
+            // })
+          }
+          complex(copy, parentId)
+          console.log(copy, 'copy');
         } else {
           copy = JSON.parse(JSON.stringify(result))
         }

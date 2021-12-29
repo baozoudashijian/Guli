@@ -207,6 +207,7 @@
               @update:source="updateSource"
       >
       </g-cascader>
+      <div>{{source}}</div>
     </div>
 
   </div>
@@ -264,7 +265,7 @@
         setTimeout(() => {
           let result = DB.filter((item) => item.parent_id == parentId)
           updateSource(result, parentId)
-        }, 2000)
+        }, 300)
       },
       testClick() {
         console.log('stop')
