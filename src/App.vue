@@ -264,6 +264,13 @@
       loadData(parentId = 0, updateSource) {
         setTimeout(() => {
           let result = DB.filter((item) => item.parent_id == parentId)
+          result.forEach((node) => {
+            if(DB.filter((item) => item.parent_id === node.id).length > 0) {
+              node.isLeaf = false
+            } else {
+              node.isLeaf = true
+            }
+          })
           updateSource(result, parentId)
         }, 300)
       },
