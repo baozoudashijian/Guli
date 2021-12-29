@@ -51,7 +51,7 @@
         // 我点击选中的一定是数组的最后一项,因为后面的会被删除掉
         this.selected = copy
         let id = copy[copy.length - 1].id
-        this.loadData(id, this.updateSource)
+        this.loadData && this.loadData(id, this.updateSource)
       },
       updateSource(result, parentId) {
         // todo 插入正常后的source
@@ -103,7 +103,7 @@
       ,
       trigger() {
         this.visible = !this.visible
-        if (this.visible) {
+        if (this.visible && this.loadData) {
           this.loadData(0, this.updateSource)
         }
       }

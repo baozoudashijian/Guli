@@ -4,7 +4,7 @@
       <div v-for="(sourceItem,index) in items" :key="index" @click="onClickLabel(sourceItem)">
         {{sourceItem.name}}
         <div class="icon">
-          <g-icon icon="arrow-right" v-if="!sourceItem.isLeaf || sourceItem.children && sourceItem.children.length > 0"></g-icon>
+          <g-icon icon="arrow-right" v-if="(sourceItem.isLeaf && !sourceItem.isLeaf) || (sourceItem.children && sourceItem.children.length > 0)"></g-icon>
         </div>
       </div>
     </div>
