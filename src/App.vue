@@ -203,6 +203,8 @@
     <div class="component-group">
       <g-cascader
               :source="source"
+              :loadData="loadData"
+              @update:source="updateSource"
       >
       </g-cascader>
       <div>{{source}}</div>
@@ -245,48 +247,7 @@
         message2: '',
         errMsg: '',
         selectedTab: 'user',
-        source: [{
-          name: '浙江',
-          children: [
-            {
-              name: '杭州',
-              children: [
-                {name: '上城'},
-                {name: '下城'},
-                {name: '江干'},
-              ]
-            },
-            {
-              name: '嘉兴',
-              children: [
-                {name: '南湖'},
-                {name: '秀洲'},
-                {name: '嘉善'},
-              ]
-            },
-          ]
-        }, {
-          name: '福建',
-          children: [
-            {
-              name: '福州',
-              children: [
-                {name: '鼓楼'},
-                {name: '台江'},
-                {name: '仓山'},
-              ]
-            },
-          ]
-        },{
-          name: '北京',
-          children: [
-            {
-              name: '北京',
-            },
-          ]
-        },{
-          name: '上海'
-        }]
+        source: []
       }
     },
     created() {
