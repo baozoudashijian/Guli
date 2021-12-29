@@ -56,15 +56,12 @@
       updateSource(result, parentId) {
         // todo 插入正常后的source
         let copy = JSON.parse(JSON.stringify(this.source))
-        console.log(copy, 'copy')
         if(copy.length > 0) {
           // 根据parentId去找到result该放在哪个位置设置children
           let complex = (children, id) => {
             let haschildren = []
             let hasNoChildren = []
-            console.log(children, 'children')
             children.forEach((item) => {
-              console.log(item, 'item')
               if(item.children) {
                 item.children.map(item => haschildren.push(item))
               } else {
@@ -73,13 +70,9 @@
             })
             let final = simpeFind(hasNoChildren, id)
             if(final) {
-              console.log(id, 'id')
-              console.log(final, 'final')
-              console.log(result, 'result');
               final.children = result
               return final
             }else{
-              console.log(haschildren, 'haschildren')
               if(haschildren.length > 0) {
                 complex(haschildren, id)
               } else {
