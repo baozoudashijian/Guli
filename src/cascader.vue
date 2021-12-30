@@ -1,5 +1,5 @@
 <template>
-  <div class="cascader" ref="popover">
+  <div class="cascader" ref="popover" v-outside="close">
     <div class="trigger" @click="trigger">
       <slot></slot>
       <g-input :value="selectName"></g-input>
@@ -21,6 +21,7 @@
 <script>
   import CascaderX from './cacader-x.vue'
   import Input from './input.vue'
+  import { outside } from './directives'
 
   export default {
     name: "cascader",
@@ -35,6 +36,9 @@
         selected: [],
         visible: false
       }
+    },
+    directives: {
+      outside
     },
     computed: {
       selectName() {
@@ -109,33 +113,15 @@
         }
 
       },
-      onClickDocument(e) {
-        console.log(e, '=> e')
-        let popover = this.$refs.popover
-        if(popover === e.target || popover.contains(e.target)) {
-          return
-        } else {
-          this.close()
-        }
-      },
       open() {
-        console.log('open')
         this.visible = true
         // 首次加载数据
         if (this.visible && this.loadData) {
           this.loadData(0, this.updateSource)
         }
-        // 测试不使用nextTick也是可以的
-        // this.$nextTick(() => {
-          document.addEventListener('click', this.onClickDocument)
-        // })
       },
       close () {
-        console.log('close')
-        // this.$nextTick(() => {
           this.visible = false
-          document.removeEventListener('click', this.onClickDocument)
-        // })
       }
     },
     mounted() {
