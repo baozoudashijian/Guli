@@ -4,12 +4,12 @@
       <div v-for="(sourceItem,index) in items" :key="index" @click="onClickLabel(sourceItem)">
         {{sourceItem.name}}
         <div class="icon">
-          <g-icon icon="arrow-right" v-if="(sourceItem.isLeaf !== undefined && !sourceItem.isLeaf) || (sourceItem.children && sourceItem.children.length > 0)"></g-icon>
+          <g-icon icon="arrow-right" v-if="arrowVisible(sourceItem)" ref="leaf"></g-icon>
         </div>
       </div>
     </div>
     <div class="right" v-if="rightItems">
-        <cascader-x :level="level+1" :selected="selected"  :items="rightItems" @update:selected="onUpdateSelected"></cascader-x>
+        <cascader-x :level="level+1" :selected="selected"  :items="rightItems" @update:selected="onUpdateSelected" @update:leaf="onUpdateLeaf"></cascader-x>
       </div>
   </div>
 
@@ -58,10 +58,17 @@
         copy.splice(this.level)
         copy[this.level] = sourceItem
         this.$emit('update:selected', copy)
+        this.$emit('update:leaf', this.$refs.leaf)
       },
       onUpdateSelected(copy) {
         // 其实他和cascader.vue中的文件的方法一样。
         this.$emit('update:selected', copy)
+      },
+      onUpdateLeaf(leaf) {
+        this.$emit('update:leaf', leaf)
+      },
+      arrowVisible(sourceItem) {
+        return (sourceItem.isLeaf !== undefined && !sourceItem.isLeaf) || (sourceItem.children && sourceItem.children.length > 0)
       }
     }
   }

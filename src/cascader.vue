@@ -8,7 +8,7 @@
       <div class="content">
         <div class="menu">
           <div class="layer">
-            <cacader-x :selected="selected" :items="source" @update:selected="onUpdateSelected"></cacader-x>
+            <cacader-x :selected="selected" :items="source" @update:selected="onUpdateSelected" @update:leaf="onUpdateLeaf"></cacader-x>
           </div>
         </div>
       </div>
@@ -50,6 +50,11 @@
       'g-input': Input
     },
     methods: {
+      onUpdateLeaf(leaf) {
+        if(leaf === undefined) {
+          this.visible = false
+        }
+      },
       onUpdateSelected(copy) {
         // selected => ['level1', 'level2', 'level3']
         // 我点击选中的一定是数组的最后一项,因为后面的会被删除掉
