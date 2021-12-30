@@ -4,7 +4,7 @@
       <slot></slot>
       <g-input :value="selectName"></g-input>
     </div>
-    <div class="popover" v-if="visible">
+    <div class="popover" v-if="visible" ref="popover">
       <div class="content">
         <div class="menu">
           <div class="layer">
@@ -102,10 +102,34 @@
       }
       ,
       trigger() {
-        this.visible = !this.visible
+        if(this.visible) {
+          this.close()
+        } else {
+          this.open()
+        }
+
+      },
+      onClickDocument(e) {
+        let popover = this.$refs.popover
+        if(popover === e.target || popover.contains(e.target)) {
+          return
+        } else {
+          this.close()
+        }
+      },
+      open() {
+        console.log('open')
+        this.visible = true
+        // 首次加载数据
         if (this.visible && this.loadData) {
           this.loadData(0, this.updateSource)
         }
+        document.addEventListener('click', this.onClickDocument)
+      },
+      close () {
+        console.log('close')
+        this.visible = false
+        document.removeEventListener('click', this.onClickDocument)
       }
     },
     mounted() {
