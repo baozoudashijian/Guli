@@ -8,7 +8,7 @@
       <div class="content">
         <div class="menu">
           <div class="layer">
-            <cacader-x :selected="selected" :items="source" @update:selected="onUpdateSelected" @update:leaf="onUpdateLeaf"></cacader-x>
+            <cacader-x :load-item="loadItem" :selected="selected" :items="source" @update:selected="onUpdateSelected" @update:leaf="onUpdateLeaf"></cacader-x>
           </div>
         </div>
       </div>
@@ -34,7 +34,8 @@
     data() {
       return {
         selected: [],
-        visible: false
+        visible: false,
+        loadItem: {}
       }
     },
     directives: {
@@ -61,8 +62,10 @@
         this.selected = copy
         let id = copy[copy.length - 1].id
         this.loadData && this.loadData(id, this.updateSource)
+        this.loadItem = copy[copy.length - 1]
       },
       updateSource(result, parentId) {
+        this.loadItem = {}
         // todo 插入正常后的source
         let copy = JSON.parse(JSON.stringify(this.source))
         if(copy.length > 0) {

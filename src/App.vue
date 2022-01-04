@@ -272,7 +272,7 @@
             }
           })
           updateSource(result, parentId)
-        }, 300)
+        }, 2000)
       },
       testClick() {
         console.log('stop')

@@ -4,12 +4,17 @@
       <div v-for="(sourceItem,index) in items" :key="index" @click="onClickLabel(sourceItem)">
         {{sourceItem.name}}
         <div class="icon">
-          <g-icon icon="arrow-right" v-if="arrowVisible(sourceItem)" ref="leaf"></g-icon>
+          <template v-if="arrowVisible(sourceItem) && sourceItem.name === loadItem.name">
+            <g-icon class="loading" icon="loading"></g-icon>
+          </template>
+          <template v-else>
+            <g-icon icon="arrow-right" v-if="arrowVisible(sourceItem)" ref="leaf"></g-icon>
+          </template>
         </div>
       </div>
     </div>
     <div class="right" v-if="rightItems">
-        <cascader-x :level="level+1" :selected="selected"  :items="rightItems" @update:selected="onUpdateSelected" @update:leaf="onUpdateLeaf"></cascader-x>
+        <cascader-x :load-item="loadItem" :level="level+1" :selected="selected"  :items="rightItems" @update:selected="onUpdateSelected" @update:leaf="onUpdateLeaf"></cascader-x>
       </div>
   </div>
 
@@ -30,6 +35,10 @@
       level: {
         type: Number,
         default: 0
+      },
+      loadItem: {
+        type: Object,
+        default: () => ({})
       }
     },
     data() {
@@ -75,6 +84,11 @@
 </script>
 
 <style scoped lang="sass">
+  @keyframes spin
+      0%
+        transform: rotate(0deg)
+      100%
+        transform: rotate(360deg)
   .cascaderX
     display: flex
     cursor: pointer
@@ -94,6 +108,9 @@
           align-items: center
           margin-left: 1em
           transform: scale(1.5)
+          .loading
+            animation: spin 2s infinite linear
+            transform: scale(0.1)
     .right
       margin-left: -1px
 
