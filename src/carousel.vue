@@ -1,7 +1,7 @@
 <template>
   <div class="g-carousel">
     <slot></slot>
-    <div>{{count}}</div>
+    <input type="hidden" :value="count">
   </div>
 </template>
 
@@ -11,7 +11,7 @@
     data() {
       return {
         name: [],
-        count: 0
+        count: -1
       }
     },
     mounted() {
@@ -27,11 +27,10 @@
         this.name = nameArr
       },
       playCarousel() {
-        let len = this.name.length
+        let len = this.name.length - 1
 
         setInterval(() => {
           if(this.count < len) {
-            console.log(123)
             this.count++
           } else {
             this.count = 0
@@ -39,11 +38,14 @@
             //   item.xname = this.name[count]
             // })
           }
-        },1000)
+        },3000)
       }
     },
-    updated(count) {
+    updated() {
       console.log(this.count)
+      this.$children.forEach((item) => {
+        item.xname = this.name[this.count]
+      })
     }
   }
 </script>
