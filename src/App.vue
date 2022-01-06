@@ -200,14 +200,27 @@
     <!--        </g-collapse-panel>-->
     <!--      </g-collapse>-->
     <!--    </div>-->
+    <!--    <div class="component-group">-->
+    <!--      <g-cascader-->
+    <!--              :source="source"-->
+    <!--              :loadData="loadData"-->
+    <!--              @update:source="updateSource"-->
+    <!--      >-->
+    <!--      </g-cascader>-->
+    <!--      <div>{{source}}</div>-->
+    <!--    </div>-->
     <div class="component-group">
-      <g-cascader
-              :source="source"
-              :loadData="loadData"
-              @update:source="updateSource"
-      >
-      </g-cascader>
-      <div>{{source}}</div>
+      <g-carousel>
+        <g-carousel-item name="1">
+          <div class="box">1</div>
+        </g-carousel-item>
+        <g-carousel-item name="2">
+          <div class="box">2</div>
+        </g-carousel-item>
+        <g-carousel-item name="3">
+          <div class="box">3</div>
+        </g-carousel-item>
+      </g-carousel>
     </div>
 
   </div>
@@ -236,6 +249,8 @@
   import Collapse from './collapse.vue'
   import CollapsePanel from './collapse-panel.vue'
   import Cascader from './cascader.vue'
+  import Carousel from './carousel.vue'
+  import CarouselItem from './carousel-item.vue'
   import DB from './db.js'
 
   export default {
@@ -265,7 +280,7 @@
         setTimeout(() => {
           let result = DB.filter((item) => item.parent_id == parentId)
           result.forEach((node) => {
-            if(DB.filter((item) => item.parent_id === node.id).length > 0) {
+            if (DB.filter((item) => item.parent_id === node.id).length > 0) {
               node.isLeaf = false
             } else {
               node.isLeaf = true
@@ -356,7 +371,9 @@
       'g-popover': Popover,
       'g-collapse': Collapse,
       'g-collapse-panel': CollapsePanel,
-      'g-cascader': Cascader
+      'g-cascader': Cascader,
+      'g-carousel': Carousel,
+      'g-carousel-item': CarouselItem,
     }
   }
 
@@ -404,5 +421,9 @@
       align-items: center
       justify-content: center
       border: 1px solid cyan
+    .box
+      width: 200px
+      height: 150px
+      border: 1px solid #cc0000
 
 </style>
