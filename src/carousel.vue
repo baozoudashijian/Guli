@@ -11,7 +11,7 @@
     data() {
       return {
         name: [],
-        count: -1
+        count: 0
       }
     },
     mounted() {
@@ -25,27 +25,28 @@
           nameArr.push(item.name)
         })
         this.name = nameArr
+        this.notificationChildren()
       },
       playCarousel() {
-        let len = this.name.length - 1
+        let len = this.name.length
 
         setInterval(() => {
-          if(this.count < len) {
+          if(this.count < len - 1) {
             this.count++
           } else {
             this.count = 0
-            // this.$children.forEach((item) => {
-            //   item.xname = this.name[count]
-            // })
           }
-        },3000)
+        },1000)
+      },
+      notificationChildren() {
+        this.$children.forEach((item) => {
+          item.xname = this.name[this.count]
+        })
       }
     },
     updated() {
       console.log(this.count)
-      this.$children.forEach((item) => {
-        item.xname = this.name[this.count]
-      })
+      this.notificationChildren()
     }
   }
 </script>
