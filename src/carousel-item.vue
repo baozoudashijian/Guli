@@ -1,7 +1,7 @@
 <template>
   <div class="g-carousel-item">
-    <transition name="slide-fade">
-      <div v-if="name === xname">
+    <transition name="slide-fade" >
+      <div v-if="name === xname" :class="{reverse}">
         <slot></slot>
       </div>
     </transition>
@@ -16,7 +16,8 @@
     },
     data() {
       return {
-        xname: ''
+        xname: '',
+        reverse: false
       }
     }
   }
@@ -35,4 +36,8 @@
     transform: translateX(200px)
   .slide-fade-leave-to
     transform: translateX(-200px)
+  .slide-fade-enter.reverse
+      transform: translateX(-200px)
+  .slide-fade-leave-to.reverse
+      transform: translateX(200px)
 </style>

@@ -40,14 +40,15 @@
           } else {
             this.count--
           }
-          setTimeout(run, 2000)
+          setTimeout(run, 3000)
         }
 
-        setTimeout(run, 2000)
+        setTimeout(run, 3000)
       },
       notificationChildren() {
         this.$children.forEach((item) => {
           item.xname = this.name[this.count]
+          item.reverse = true
         })
       }
     },
