@@ -11,7 +11,8 @@
     data() {
       return {
         name: [],
-        count: 0
+        count: 0,
+        lastCount: -1
       }
     },
     mounted() {
@@ -30,11 +31,13 @@
       playCarousel() {
         let len = this.name.length
         let run = () => {
-          // if(this.count < len - 1) {
+          this.lastCount = this.count
+          // if (this.count < len - 1) {
           //   this.count++
           // } else {
           //   this.count = 0
           // }
+
           if(this.count === 0) {
             this.count = len - 1
           } else {
@@ -48,12 +51,25 @@
       notificationChildren() {
         this.$children.forEach((item) => {
           item.xname = this.name[this.count]
-          item.reverse = true
+          let reverse = this.count > this.lastCount ? false : true
+          if (this.lastCount === this.$children.length - 1 && this.count === 0) {
+            reverse = false
+          }
+          if (this.lastCount === 0 && this.count === this.$children.length - 1) {
+            reverse = true
+          }
+          console.log(reverse, 'reverse')
+          item.reverse = reverse
+          // if (this.lastCount > this.count || (this.lastCount === 0 && this.count === this.name.length - 1)) {
+          //   item.reverse = true
+          // } else if (this.lastCount < this.count || (this.lastCount === this.name.length - 1 && this.count === 0)) {
+          //   item.reverse = false
+          // }
         })
       }
     },
     updated() {
-      console.log(this.count)
+      console.log(this.lastCount , this.count)
       this.notificationChildren()
     }
   }
