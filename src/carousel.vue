@@ -30,10 +30,15 @@
       playCarousel() {
         let len = this.name.length
         let run = () => {
-          if(this.count < len - 1) {
-            this.count++
+          // if(this.count < len - 1) {
+          //   this.count++
+          // } else {
+          //   this.count = 0
+          // }
+          if(this.count === 0) {
+            this.count = len - 1
           } else {
-            this.count = 0
+            this.count--
           }
           setTimeout(run, 2000)
         }
