@@ -29,14 +29,16 @@
       },
       playCarousel() {
         let len = this.name.length
-
-        setInterval(() => {
+        let run = () => {
           if(this.count < len - 1) {
             this.count++
           } else {
             this.count = 0
           }
-        },1000)
+          setTimeout(run, 2000)
+        }
+
+        setTimeout(run, 2000)
       },
       notificationChildren() {
         this.$children.forEach((item) => {
@@ -51,6 +53,8 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="sass">
+  .g-carousel
+    position: relative
 
 </style>
