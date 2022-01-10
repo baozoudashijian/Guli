@@ -424,6 +424,6 @@
     .box
       width: 200px
       height: 150px
-      border: 1px solid #cc0000
+      /*border: 1px solid #cc0000*/
 
 </style>

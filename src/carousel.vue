@@ -2,6 +2,9 @@
   <div class="g-carousel">
     <slot></slot>
     <input type="hidden" :value="count">
+    <div class="dots-cantainer">
+      <div class="dot" :class="{active: count == n-1}" v-for="n in name.length"></div>
+    </div>
   </div>
 </template>
 
@@ -32,21 +35,22 @@
         let len = this.name.length
         let run = () => {
           this.lastCount = this.count
-          // if (this.count < len - 1) {
-          //   this.count++
-          // } else {
-          //   this.count = 0
-          // }
-
-          if(this.count === 0) {
-            this.count = len - 1
+          // 正向轮播
+          if (this.count < len - 1) {
+            this.count++
           } else {
-            this.count--
+            this.count = 0
           }
-          setTimeout(run, 3000)
+          // 反向轮播
+          // if(this.count === 0) {
+          //   this.count = len - 1
+          // } else {
+          //   this.count--
+          // }
+          setTimeout(run, 5000)
         }
 
-        setTimeout(run, 3000)
+        setTimeout(run, 5000)
       },
       notificationChildren() {
         this.$children.forEach((item) => {
@@ -78,5 +82,21 @@
 <style scoped lang="sass">
   .g-carousel
     position: relative
+    display: inline-block
+    .dots-cantainer
+      position: absolute
+      bottom: 0
+      display: flex
+      justify-content: center
+      width: 100%
+      .dot
+        width: 10px
+        height: 10px
+        margin: 0 5px
+        border-radius: 50%
+        background-color: #eee
+        cursor: pointer
+      .active
+        background-color: #40a9ff
 
 </style>
