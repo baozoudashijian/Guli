@@ -47,10 +47,10 @@
           // } else {
           //   this.count--
           // }
-          setTimeout(run, 5000)
+          setTimeout(run, 10000)
         }
 
-        setTimeout(run, 5000)
+        setTimeout(run, 10000)
       },
       notificationChildren() {
         this.$children.forEach((item) => {
@@ -72,6 +72,7 @@
         })
       },
       clickDot(n) {
+        this.lastCount = this.count
         this.count = n - 1
       }
     },
