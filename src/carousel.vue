@@ -3,7 +3,7 @@
     <slot></slot>
     <input type="hidden" :value="count">
     <div class="dots-cantainer">
-      <div class="dot" :class="{active: count == n-1}" v-for="n in name.length"></div>
+      <div class="dot" :class="{active: count == n-1}" v-for="n in name.length" @click="clickDot(n)"></div>
     </div>
   </div>
 </template>
@@ -70,6 +70,9 @@
           //   item.reverse = false
           // }
         })
+      },
+      clickDot(n) {
+        this.count = n - 1
       }
     },
     updated() {
