@@ -1,5 +1,5 @@
 <template>
-  <div class="g-carousel">
+  <div class="g-carousel" @mouseenter="carouselMouseenter" @mouseleave="carouselMouseleave">
     <slot></slot>
     <input type="hidden" :value="count">
     <div class="dots-cantainer">
@@ -16,7 +16,8 @@
         name: [],
         count: 0,
         lastCount: -1,
-        duration: 2000
+        duration: 2000,
+        timer: null
       }
     },
     mounted() {
@@ -48,10 +49,10 @@
           // } else {
           //   this.count--
           // }
-          setTimeout(run, this.duration)
+          this.timer = setTimeout(run, this.duration)
         }
 
-        setTimeout(run, this.duration)
+        this.timer = setTimeout(run, this.duration)
       },
       notificationChildren() {
         this.$children.forEach((item) => {
@@ -75,6 +76,14 @@
       clickDot(n) {
         this.lastCount = this.count
         this.count = n - 1
+      },
+      carouselMouseenter() {
+        if(this.timer) {
+          clearTimeout(this.timer)
+        }
+      },
+      carouselMouseleave() {
+        this.playCarousel()
       }
     },
     updated() {
