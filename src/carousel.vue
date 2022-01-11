@@ -15,7 +15,8 @@
       return {
         name: [],
         count: 0,
-        lastCount: -1
+        lastCount: -1,
+        duration: 2000
       }
     },
     mounted() {
@@ -47,10 +48,10 @@
           // } else {
           //   this.count--
           // }
-          setTimeout(run, 10000)
+          setTimeout(run, this.duration)
         }
 
-        setTimeout(run, 10000)
+        setTimeout(run, this.duration)
       },
       notificationChildren() {
         this.$children.forEach((item) => {
@@ -78,7 +79,9 @@
     },
     updated() {
       console.log(this.lastCount , this.count)
-      this.notificationChildren()
+      this.$nextTick(() => {
+        this.notificationChildren()
+      })
     }
   }
 </script>
