@@ -1,5 +1,11 @@
 <template>
-  <div class="g-carousel" @mouseenter="carouselMouseenter" @mouseleave="carouselMouseleave">
+  <div class="g-carousel"
+       @mouseenter="carouselMouseenter"
+       @mouseleave="carouselMouseleave"
+       @touchstart="touchStart"
+       @touchmove="touchMove"
+       @touchend="touchEnd"
+  >
     <slot></slot>
     <input type="hidden" :value="count">
     <div class="dots-cantainer">
@@ -17,7 +23,8 @@
         count: 0,
         lastCount: -1,
         duration: 2000,
-        timer: undefined
+        timer: undefined,
+        startTouch: null
       }
     },
     mounted() {
@@ -35,7 +42,9 @@
       },
       playCarousel() {
         let len = this.name.length
-        if (this.timerId) { return }
+        if (this.timerId) {
+          return
+        }
         let run = () => {
           this.lastCount = this.count
           // 正向轮播
@@ -60,7 +69,7 @@
           item.xname = this.name[this.count]
           let reverse = this.count > this.lastCount ? false : true
           // 如果是自动轮播的话，才会加上这个逻辑
-          if(this.timer) {
+          if (this.timer) {
             if (this.lastCount === this.$children.length - 1 && this.count === 0) {
               reverse = false
             }
@@ -68,7 +77,6 @@
               reverse = true
             }
           }
-          console.log(reverse, 'reverse')
           item.reverse = reverse
           // if (this.lastCount > this.count || (this.lastCount === 0 && this.count === this.name.length - 1)) {
           //   item.reverse = true
@@ -81,18 +89,43 @@
         this.lastCount = this.count
         this.count = n - 1
       },
-      carouselMouseenter() {
-        if(this.timer) {
+      pause() {
+        if (this.timer) {
           clearTimeout(this.timer)
           this.timer = undefined
         }
       },
+      carouselMouseenter() {
+        this.pause()
+      },
       carouselMouseleave() {
         this.playCarousel()
+      },
+      touchStart(e) {
+        this.pause()
+        console.log(e,'start')
+        this.startTouch = e.touches[0]
+      },
+      touchMove() {
+        console.log('move')
+      },
+      touchEnd(e) {
+        console.log('end')
+        let endTouch = e.changedTouches[0]
+        let {clientX: x1, clientY: y1} = this.startTouch
+        let {clientX: x2, clientY: y2} = endTouch
+
+        if(x1 > x2) {
+          console.log('左')
+        } else {
+          console.log('右')
+        }
+        this.$nextTick(() => {
+          this.playCarousel()
+        })
       }
     },
     updated() {
-      console.log(this.lastCount , this.count)
       this.$nextTick(() => {
         this.notificationChildren()
       })
@@ -103,12 +136,14 @@
 <style scoped lang="sass">
   .g-carousel
     position: relative
+
     .dots-cantainer
       position: absolute
       bottom: 0
       display: flex
       justify-content: center
       width: 100%
+
       .dot
         width: 10px
         height: 10px
@@ -116,6 +151,7 @@
         border-radius: 50%
         background-color: #eee
         cursor: pointer
+
       .active
         background-color: #40a9ff
 
