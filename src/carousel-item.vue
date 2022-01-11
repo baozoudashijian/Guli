@@ -30,16 +30,17 @@
 
 <style lang="sass" scoped>
 
-  .g-carousel-item
-    display: inline-block
-    position: absolute
   .g-carousel-item-active
-    position: static
     .slide-fade-enter-active
       transition: all .3s ease
 
     .slide-fade-leave-active
       transition: all .3s ease
+      position: absolute
+      left: 0
+      top: 0
+      width: 100%
+      height: 100%
 
     .slide-fade-enter
       transform: translateX(200px)

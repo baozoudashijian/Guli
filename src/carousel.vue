@@ -98,7 +98,6 @@
 <style scoped lang="sass">
   .g-carousel
     position: relative
-    display: inline-block
     .dots-cantainer
       position: absolute
       bottom: 0
