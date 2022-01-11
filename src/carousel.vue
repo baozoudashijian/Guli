@@ -17,7 +17,7 @@
         count: 0,
         lastCount: -1,
         duration: 2000,
-        timer: null
+        timer: undefined
       }
     },
     mounted() {
@@ -35,6 +35,7 @@
       },
       playCarousel() {
         let len = this.name.length
+        if (this.timerId) { return }
         let run = () => {
           this.lastCount = this.count
           // 正向轮播
@@ -58,11 +59,14 @@
         this.$children.forEach((item) => {
           item.xname = this.name[this.count]
           let reverse = this.count > this.lastCount ? false : true
-          if (this.lastCount === this.$children.length - 1 && this.count === 0) {
-            reverse = false
-          }
-          if (this.lastCount === 0 && this.count === this.$children.length - 1) {
-            reverse = true
+          // 如果是自动轮播的话，才会加上这个逻辑
+          if(this.timer) {
+            if (this.lastCount === this.$children.length - 1 && this.count === 0) {
+              reverse = false
+            }
+            if (this.lastCount === 0 && this.count === this.$children.length - 1) {
+              reverse = true
+            }
           }
           console.log(reverse, 'reverse')
           item.reverse = reverse
@@ -80,6 +84,7 @@
       carouselMouseenter() {
         if(this.timer) {
           clearTimeout(this.timer)
+          this.timer = undefined
         }
       },
       carouselMouseleave() {
