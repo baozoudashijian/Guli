@@ -78,11 +78,6 @@
             }
           }
           item.reverse = reverse
-          // if (this.lastCount > this.count || (this.lastCount === 0 && this.count === this.name.length - 1)) {
-          //   item.reverse = true
-          // } else if (this.lastCount < this.count || (this.lastCount === this.name.length - 1 && this.count === 0)) {
-          //   item.reverse = false
-          // }
         })
       },
       clickDot(n) {
@@ -115,10 +110,19 @@
         let {clientX: x1, clientY: y1} = this.startTouch
         let {clientX: x2, clientY: y2} = endTouch
 
-        if(x1 > x2) {
-          console.log('左')
-        } else {
-          console.log('右')
+        //求斜边
+        let distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2- y1, 2))
+        let deltaY = Math.abs(y2 - y1)
+        let rate = distance / deltaY
+
+
+        if(rate > 2) {
+          this.lastCount = this.count
+          if(x1 > x2) {
+            this.count = this.lastCount === this.name.length - 1 ? this.lastCount = 0  : this.lastCount + 1
+          } else {
+            this.count = this.lastCount === 0 ? this.lastCount = this.name.length - 1 : this.lastCount - 1
+          }
         }
         this.$nextTick(() => {
           this.playCarousel()
