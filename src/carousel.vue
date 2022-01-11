@@ -3,13 +3,14 @@
        @mouseenter="carouselMouseenter"
        @mouseleave="carouselMouseleave"
        @touchstart="touchStart"
-       @touchmove="touchMove"
        @touchend="touchEnd"
   >
     <slot></slot>
     <input type="hidden" :value="count">
     <div class="dots-cantainer">
+      <div class="dot prev" @click="prev">&lt;</div>
       <div class="dot" :class="{active: count == n-1}" v-for="n in name.length" @click="clickDot(n)"></div>
+      <div class="dot next" @click="next">&gt;</div>
     </div>
   </div>
 </template>
@@ -22,7 +23,7 @@
         name: [],
         count: 0,
         lastCount: -1,
-        duration: 2000,
+        duration: 5000,
         timer: undefined,
         startTouch: null
       }
@@ -98,14 +99,9 @@
       },
       touchStart(e) {
         this.pause()
-        console.log(e,'start')
         this.startTouch = e.touches[0]
       },
-      touchMove() {
-        console.log('move')
-      },
       touchEnd(e) {
-        console.log('end')
         let endTouch = e.changedTouches[0]
         let {clientX: x1, clientY: y1} = this.startTouch
         let {clientX: x2, clientY: y2} = endTouch
@@ -127,6 +123,14 @@
         this.$nextTick(() => {
           this.playCarousel()
         })
+      },
+      prev() {
+        this.lastCount = this.count
+        this.count = this.lastCount === 0 ? this.lastCount = this.name.length - 1 : this.lastCount - 1
+      },
+      next() {
+        this.lastCount = this.count
+        this.count = this.lastCount === this.name.length - 1 ? this.lastCount = 0  : this.lastCount + 1
       }
     },
     updated() {
@@ -155,6 +159,11 @@
         border-radius: 50%
         background-color: #eee
         cursor: pointer
+        &.prev, &.next
+          display: flex
+          justify-content: center
+          align-items: center
+          color: #6196cc
 
       .active
         background-color: #40a9ff

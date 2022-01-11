@@ -31,11 +31,10 @@
 <style lang="sass" scoped>
 
   .g-carousel-item-active
-    .slide-fade-enter-active
+    .slide-fade-enter-active,.slide-fade-leave-active
       transition: all .3s ease
 
     .slide-fade-leave-active
-      transition: all .3s ease
       position: absolute
       left: 0
       top: 0
