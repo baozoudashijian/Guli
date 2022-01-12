@@ -45,15 +45,15 @@
   .active
     color: rgb(24, 144, 255)
 
-    .tab-nav-item
-      padding: 12px 0
-      margin-left: 32px
-      cursor: pointer
+  .tab-nav-item
+    padding: 12px 0
+    margin-left: 32px
+    cursor: pointer
 
-      &:nth-child(1)
-        margin-left: 0
+    &:nth-child(1)
+      margin-left: 0
 
-    .disabled
-      color: #00000040
-      cursor: not-allowed
+  .disabled
+    color: #00000040
+    cursor: not-allowed
 </style>
