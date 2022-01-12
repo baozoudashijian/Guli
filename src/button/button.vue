@@ -24,7 +24,7 @@
       },
       type: {
         type: String,
-        default: "Primary"
+        default: "primary"
       }
     },
     components: {
