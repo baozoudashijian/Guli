@@ -87,38 +87,4 @@
   .content
     width: 100%
     height: 100%
-    @media (min-width: 375px)
-      @for $i from 1 through 24
-        .col-#{$i}
-          width: $i / 24 * 100%
-        .col-offset-#{$i}
-          margin-left: $i / 24 * 100%
-    @media (min-width: 577px)
-      @for $i from 1 through 24
-        .col-ipad-#{$i}
-          width: $i / 24 * 100%
-        .col-ipad-offset-#{$i}
-          margin-left: $i / 24 * 100%
-
-    @media (min-width: 769px)
-      @for $i from 1 through 24
-        .col-narrow-#{$i}
-          width: $i / 24 * 100%
-        .col-narrow-offset-#{$i}
-          margin-left: $i / 24 * 100%
-
-    @media (min-width: 993px)
-      @for $i from 1 through 24
-        .col-pc-#{$i}
-          width: $i / 24 * 100%
-        .col-pc-offset-#{$i}
-          margin-left: $i / 24 * 100%
-
-
-    @media (min-width: 1201px)
-      @for $i from 1 through 24
-        .col-widePc-#{$i}
-          width: $i / 24 * 100%
-        .col-widePc-offset-#{$i}
-          margin-left: $i / 24 * 100%
 </style>

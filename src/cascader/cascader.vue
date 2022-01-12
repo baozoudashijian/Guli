@@ -20,7 +20,7 @@
 
 <script>
   import CascaderX from './cacader-x.vue'
-  import Input from './input.vue'
+  import Input from '../input/input.vue'
   import { outside } from './directives'
 
   export default {

@@ -1,7 +1,7 @@
 import {describe} from "mocha";
 const expect = chai.expect;
 import Vue from'vue'
-import TabNavItem from '../src/tab-nav-item.vue'
+import TabNavItem from '../src/tab/tab-nav-item.vue'
 
 Vue.config.productionTip = false
 Vue.config.devtools = false

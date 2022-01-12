@@ -2,7 +2,7 @@ import {use} from "chai/index";
 
 const expect = chai.expect;
 import Vue from 'vue';
-import Input from '../src/input.vue';
+import Input from '../src/input/input.vue';
 
 describe('Input', () => {
 

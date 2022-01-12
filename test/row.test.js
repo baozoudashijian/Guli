@@ -1,7 +1,7 @@
 import {describe} from "mocha";
 import Vue from 'vue';
-import Row from '../src/row.vue'
-import Col from '../src/col.vue'
+import Row from '../src/grid/row.vue'
+import Col from '../src/grid/col.vue'
 const expect = chai.expect;
 
 Vue.config.productionTip = false

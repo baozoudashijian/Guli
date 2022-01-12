@@ -16,7 +16,7 @@
 </template>
 <script>
 
-  import Icon from './icon.vue'
+  import Icon from '../icon/icon.vue'
 
   export default {
     name: 'input',
@@ -42,7 +42,7 @@
   }
 </script>
 <style lang="sass" scoped>
-  @import "var"
+  @import "src/var"
   .wrapper
     font-size: $font-size
     display: inline-flex

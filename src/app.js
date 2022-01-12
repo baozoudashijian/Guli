@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import App from "./App.vue"; // 不写全路径会报错
-import Button from './button.vue'
-import ButtonGroup from './button-group.vue'
-import Icon  from './icon.vue'
-import { Toast } from './plugin.js'
+import Button from './button/button.vue'
+import ButtonGroup from './button/button-group.vue'
+import Icon  from './icon/icon.vue'
+import { Toast } from './toast/plugin.js'
 // 注册组件是异步操作
 Vue.use(Toast)
 

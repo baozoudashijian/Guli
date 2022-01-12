@@ -1,11 +1,11 @@
 import {describe} from "mocha";
 const expect = chai.expect;
 import Vue from'vue'
-import Tabs from '../src/tabs.vue'
-import TabNav from '../src/tab-nav.vue'
-import TabNavItem from '../src/tab-nav-item.vue'
-import TabContent from '../src/tab-content.vue'
-import TabContentPanel from '../src/tab-content-panel.vue'
+import Tabs from '../src/tab/tabs.vue'
+import TabNav from '../src/tab/tab-nav.vue'
+import TabNavItem from '../src/tab/tab-nav-item.vue'
+import TabContent from '../src/tab/tab-content.vue'
+import TabContentPanel from '../src/tab/tab-content-panel.vue'
 
 Vue.component('g-tabs', Tabs)
 Vue.component('g-tab-nav', TabNav)

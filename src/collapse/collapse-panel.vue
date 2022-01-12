@@ -12,7 +12,7 @@
 </template>
 
 <script>
-  import Icon from './icon.vue'
+  import Icon from '../icon/icon.vue'
 
   export default {
     name: "collapse-panel",
