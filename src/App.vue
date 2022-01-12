@@ -2,11 +2,11 @@
   <div>
     <!--      <div class="component-group">-->
     <!--            <div class="section">-->
-    <!--                <g-button>按钮</g-button>-->
-    <!--                <g-button icon="setting">按钮</g-button>-->
-    <!--                <g-button icon="setting" iconPosition="left">按钮</g-button>-->
-    <!--                <g-button icon="setting" iconPosition="right">按钮</g-button>-->
-    <!--                <g-button icon="setting" iconPosition="right" :loading="loading" @click="btnClick">按钮</g-button>-->
+                    <g-button>按钮</g-button>
+                    <g-button icon="setting">按钮</g-button>
+                    <g-button icon="setting" iconPosition="left">按钮</g-button>
+                    <g-button icon="setting" iconPosition="right">按钮</g-button>
+                    <g-button icon="setting" iconPosition="right" :loading="loading" @click="btnClick">按钮</g-button>
     <!--            </div>-->
     <!--            <div class="section">-->
     <!--                <g-button-group>-->
@@ -19,13 +19,6 @@
     <!--                <g-button>-->
     <!--                    <g-icon icon="setting"></g-icon>-->
     <!--                </g-button>-->
-    <!--            </div>-->
-    <!--            <div class="section">-->
-    <!--                <g-button type="primary">Primary</g-button>-->
-    <!--                <g-button type="success">Success</g-button>-->
-    <!--                <g-button type="info">Info</g-button>-->
-    <!--                <g-button type="warning">Warning</g-button>-->
-    <!--                <g-button type="danger">Danger</g-button>-->
     <!--            </div>-->
     <!--        </div>-->
     <!--        <div class="component-group">-->
