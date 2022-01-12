@@ -6,13 +6,16 @@
     <g-button icon="setting">按钮</g-button>
     <g-button icon="setting" iconPosition="left">按钮</g-button>
     <g-button icon="setting" iconPosition="right">按钮</g-button>
-    <p>预览</p>
+    <p>状态按钮</p>
     <g-button type="primary">Primary</g-button>
     <g-button type="success">Success</g-button>
     <g-button type="info">Info</g-button>
     <g-button type="warning">Warning</g-button>
     <g-button type="danger">Danger</g-button>
-
+    <p>
+      <strong>代码</strong>
+    </p>
+    <pre><code>{{content}}</code></pre>
   </div>
 </template>
 <script>
@@ -26,10 +29,10 @@
     data () {
       return {
         content: `
-          <g-button>默认按钮</g-button>
-          <g-button icon="settings">默认按钮</g-button>
-          <g-button :loading="true">默认按钮</g-button>
-          <g-button disabled>默认按钮</g-button>
+          <g-button>按钮</g-button>
+          <g-button icon="setting">按钮</g-button>
+          <g-button icon="setting" iconPosition="left">按钮</g-button>
+          <g-button icon="setting" iconPosition="right">按钮</g-button>
       `.replace(/^ {8}/gm, '').trim()
       }
     }
