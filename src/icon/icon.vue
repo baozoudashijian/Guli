@@ -1,6 +1,6 @@
 <template>
   <svg class="g-icon">
-    <use :xlink:href=`#icon-${icon}`></use>
+    <use :xlink:href="getIcon"></use>
   </svg>
 </template>
 
@@ -12,6 +12,17 @@
       icon: {
         type: String
       }
+    },
+    computed: {
+      getIcon() {
+        return `#icon-${this.icon}`
+      }
+    },
+    created() {
+      console.log(`#icon-${this.icon}`, 'created')
+    },
+    mounted() {
+      console.log(`#icon-${this.icon}`, 'mounted')
     }
   }
 </script>
