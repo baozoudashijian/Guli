@@ -11,6 +11,7 @@
 </script>
 
 <style scoped lang="sass">
+  @import "src/var"
 
   .g-button-group
     font-size: 0
@@ -21,12 +22,12 @@
       border-radius: 0
 
       &:first-child
-        border-top-left-radius: var(--border-radius)
-        border-bottom-left-radius: var(--border-radius)
+        border-top-left-radius: $button-border-radius
+        border-bottom-left-radius: $button-border-radius
 
       &:last-child
-        border-top-right-radius: var(--border-radius)
-        border-bottom-right-radius: var(--border-radius)
+        border-top-right-radius: $button-border-radius
+        border-bottom-right-radius: $button-border-radius
 
       &:hover
         position: relative

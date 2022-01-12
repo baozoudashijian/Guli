@@ -35,6 +35,7 @@
 </script>
 
 <style lang="sass">
+  @import "./src/var"
   @keyframes spin
     0%
       transform: rotate(0deg)
@@ -45,12 +46,12 @@
     display: inline-flex
     justify-content: center
     align-items: center
-    font-size: var(--font-size)
-    height: var(--button-height)
+    font-size: $button-font-size
+    height: $button-height
     padding: 0 1em
-    border-radius: var(--border-radius)
-    border: 1px solid var(--border-color)
-    background: var(--button-bg)
+    border-radius: $button-border-radius
+    border: 1px solid $button-border-color
+    background: $button-bg
     vertical-align: middle
     margin-left: .1em
     outline: none
@@ -58,10 +59,10 @@
 
 
     &:hover
-      border-color: var(--border-color-hover)
+      border-color: $button-border-color-hover
 
     &:active
-      background-color: var(--button-active-bg)
+      background-color: $button-active-bg
 
     > span
       margin-left: .2em
@@ -87,37 +88,37 @@
       margin-right: .2em
 
   .btn-primary
-    background-color: var(--primary)
+    background-color: $primary
 
   .btn-primary:active
-    background-color: var(--primary)
+    background-color: $primary
     opacity: 0.8
 
   .btn-success
-    background-color: var(--success)
+    background-color: $success
 
   .btn-success:active
-    background-color: var(--success)
+    background-color: $success
     opacity: 0.8
 
   .btn-info
-    background-color: var(--info)
+    background-color: $info
 
   .btn-info:active
-    background-color: var(--info)
+    background-color: $info
     opacity: 0.8
 
   .btn-warning
-    background-color: var(--warning)
+    background-color: $warning
 
   .btn-warning:active
-    background-color: var(--warning)
+    background-color: $warning
     opacity: 0.8
 
   .btn-danger
-    background-color: var(--danger)
+    background-color: $danger
 
   .btn-danger:active
-    background-color: var(--danger)
+    background-color: $danger
     opacity: 0.8
 </style>
