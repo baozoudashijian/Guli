@@ -1,18 +1,13 @@
 <template>
   <div style="padding-top: 16px;">
     <h2>简单用法</h2>
-    <p>
-      <strong>预览</strong>
-      <g-button>点击</g-button>
-    </p>
+    <p>预览</p>
+    <g-button>点击</g-button>
   </div>
 </template>
 <script>
 
-
-  console.log(123)
-  import Button from "@src/button/button.vue";
-  console.log(Button)
+  import Button from "../../../src/button/button.vue";
 
   export default {
     components: {

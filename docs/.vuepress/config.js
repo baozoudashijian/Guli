@@ -28,13 +28,11 @@ module.exports = {
 
     ]
   },
-  includePaths: [path.join(__dirname, '../../styles')],
-  sass: {indentedSyntax: true},
-  configureWebpack: {
-    resolve: {
-      alias: {
-        '@src': path.resolve(__dirname, '../../src'),
-      }
-    }
-  }
+  // configureWebpack: {
+  //   resolve: {
+  //     alias: {
+  //       '@src': path.resolve(__dirname, '../../src'),
+  //     }
+  //   }
+  // }
 }
