@@ -128,11 +128,11 @@
     <!--            <g-footer>footer</g-footer>-->
     <!--          </g-layout>-->
     <!--        </div>-->
-    <!--        <div class="component-group">-->
-    <!--          <g-button @click="clickHandle" type="success">success</g-button>-->
-    <!--          <g-button @click="clickHandle2" type="error">error</g-button>-->
-    <!--          <g-button @click="clickHandle3" type="warning">warning</g-button>-->
-    <!--        </div>-->
+            <div class="component-group">
+              <g-button @click="clickHandle" type="success">success</g-button>
+              <g-button @click="clickHandle2" type="error">error</g-button>
+              <g-button @click="clickHandle3" type="warning">warning</g-button>
+            </div>
     <!--        <div class="component-group">-->
     <!--          <g-tabs :selected.sync="selectedTab" @update:selected="yyy">-->
     <!--            <g-tab-nav>-->

@@ -1,27 +1,40 @@
+const path = require('path')
 module.exports = {
-  title: 'Hello Guli UI',
-  description: 'Just playing around',
   base: '/Guli/',
+  title: '轱辘UI',
+  description: '一个好用的UI框架',
   themeConfig: {
+    nav: [
+      {text: '主页', link: '/'},
+      {text: '文档', link: '/guide/'},
+      {text: '交流', link: 'https://google.com'},
+    ],
     sidebar: [
       {
-        title: '快速上手',   // 必要的
-        path: '/guide/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
-        collapsable: false, // 可选的, 默认值是 true,
-        sidebarDepth: 0,    // 可选的, 默认值是 1
-        // children: [
-        //   '/'
-        // ]
+        title: '入门',
+        collapsable: false,
+        children: [
+          '/install/',
+          '/get-started/',
+        ]
+      },
+      {
+        title: '组件',
+        collapsable: false,
+        children: [
+          '/components/button'
+        ]
+      },
+
+    ]
+  },
+  includePaths: [path.join(__dirname, '../../styles')],
+  sass: {indentedSyntax: true},
+  configureWebpack: {
+    resolve: {
+      alias: {
+        '@src': path.resolve(__dirname, '../../src'),
       }
-      // {
-      //   title: 'Group 2',
-      //   children: [ /* ... */],
-      //   initialOpenGroupIndex: -1 // 可选的, 默认值是 0
-      // }
-    ]
-    ,
-    nav: [
-      {text: '首页', link: '/'}
-    ]
+    }
   }
 }
