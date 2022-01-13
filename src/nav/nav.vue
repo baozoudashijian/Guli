@@ -6,7 +6,52 @@
 
 <script>
   export default {
-    name: "nav"
+    name: "nav",
+    provide() {
+      return {
+        root: this
+      }
+    },
+    props: {
+      selected: Array,
+      default: () => []
+    },
+    data() {
+      return {
+        items: [],
+      }
+    },
+    mounted() {
+      this.listenToChildren()
+      this.updateChildren()
+    },
+    methods: {
+      addItem(vm) {
+        this.items.push(vm)
+      },
+      updateChildren() {
+        this.items.forEach(vm => {
+          if(this.selected.indexOf(vm.name) >=0 ) {
+            vm.selected = true
+          } else {
+            vm.selected = false
+          }
+        })
+      },
+      listenToChildren() {
+        this.items.forEach(vm => {
+          vm.$on('add:selected', (name) => {
+            // if(this.selected.indexOf(name) < 0) {
+            //   let copy = JSON.parse(JSON.stringify(this.selected))
+            // }
+            this.$emit('update:selected', [name])
+          })
+        })
+      }
+    },
+    updated() {
+      this.updateChildren()
+    }
   }
 </script>
 

@@ -1,12 +1,33 @@
 <template>
-  <div class="g-nav-item">
+  <div class="g-nav-item" @click="updateSeleted" :class="{selected}">
     <slot></slot>
   </div>
 </template>
 
 <script>
   export default {
-    name: "nav-item"
+    name: "nav-item",
+    inject: ['root'],
+    props: {
+      name: {
+        type: String
+      }
+    },
+    data() {
+      return {
+        selected: false
+      }
+    },
+    created() {
+      this.root.addItem(this)
+    },
+    methods: {
+      updateSeleted() {
+        console.log(this.name)
+        this.$emit('add:selected', this.name)
+        // this.root.addItem(this)
+      }
+    }
   }
 </script>
 
@@ -21,4 +42,7 @@
     cursor: pointer
     &:hover
       background-color: $nav-background-hover
+    &.selected
+      color: rgb(255, 208, 75)
+      border-bottom-color: rgb(255, 208, 75)
 </style>

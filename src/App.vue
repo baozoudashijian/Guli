@@ -209,16 +209,16 @@
     <!--      </g-carousel>-->
     <!--    </div>-->
     <div class="component-group">
-      <g-nav>
-        <g-nav-item>处理中心</g-nav-item>
+      <g-nav :selected.sync="selected">
+        <g-nav-item name="process">处理中心</g-nav-item>
         <g-subnav>
           <template slot="title">我的工作台</template>
-          <g-nav-item>物流管理</g-nav-item>
-          <g-nav-item>商品管理</g-nav-item>
-          <g-nav-item>订单管理</g-nav-item>
+          <g-nav-item name="logistics">物流管理</g-nav-item>
+          <g-nav-item name="goods">商品管理</g-nav-item>
+          <g-nav-item name="complaint">投诉管理</g-nav-item>
         </g-subnav>
-        <g-nav-item>消息中心</g-nav-item>
-        <g-nav-item>订单管理</g-nav-item>
+        <g-nav-item name="message">消息中心</g-nav-item>
+        <g-nav-item name="order">订单管理</g-nav-item>
       </g-nav>
     </div>
 
@@ -264,7 +264,8 @@
         message2: '',
         errMsg: '',
         selectedTab: 'user',
-        source: []
+        source: [],
+        selected: ['process']
       }
     },
     created() {
