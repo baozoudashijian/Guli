@@ -2,13 +2,6 @@
   <div>
     <!--      <div class="component-group">-->
     <!--            <div class="section">-->
-                    <g-button>按钮</g-button>
-                    <g-button icon="setting">按钮</g-button>
-                    <g-button icon="setting" iconPosition="left">按钮</g-button>
-                    <g-button icon="setting" iconPosition="right">按钮</g-button>
-                    <g-button icon="setting" iconPosition="right" :loading="loading" @click="btnClick">按钮</g-button>
-    <!--            </div>-->
-    <!--            <div class="section">-->
     <!--                <g-button-group>-->
     <!--                    <g-button icon="arrow-left">上一页</g-button>-->
     <!--                    <g-button icon="loading" @click="btnClick">全部</g-button>-->
@@ -121,11 +114,11 @@
     <!--            <g-footer>footer</g-footer>-->
     <!--          </g-layout>-->
     <!--        </div>-->
-            <div class="component-group">
-              <g-button @click="clickHandle" type="success">success</g-button>
-              <g-button @click="clickHandle2" type="error">error</g-button>
-              <g-button @click="clickHandle3" type="warning">warning</g-button>
-            </div>
+    <!--            <div class="component-group">-->
+    <!--              <g-button @click="clickHandle" type="success">success</g-button>-->
+    <!--              <g-button @click="clickHandle2" type="error">error</g-button>-->
+    <!--              <g-button @click="clickHandle3" type="warning">warning</g-button>-->
+    <!--            </div>-->
     <!--        <div class="component-group">-->
     <!--          <g-tabs :selected.sync="selectedTab" @update:selected="yyy">-->
     <!--            <g-tab-nav>-->
@@ -215,6 +208,19 @@
     <!--        </g-carousel-item>-->
     <!--      </g-carousel>-->
     <!--    </div>-->
+    <div class="component-group">
+      <g-nav>
+        <g-nav-item>处理中心</g-nav-item>
+        <g-subnav>
+          <template slot="title">我的工作台</template>
+          <g-nav-item>物流管理</g-nav-item>
+          <g-nav-item>商品管理</g-nav-item>
+          <g-nav-item>订单管理</g-nav-item>
+        </g-subnav>
+        <g-nav-item>消息中心</g-nav-item>
+        <g-nav-item>订单管理</g-nav-item>
+      </g-nav>
+    </div>
 
   </div>
 
@@ -244,6 +250,9 @@
   import Cascader from './cascader/cascader.vue'
   import Carousel from './carousel/carousel.vue'
   import CarouselItem from './carousel/carousel-item.vue'
+  import Nav from './nav/nav.vue'
+  import NavItem from './nav/nav-item.vue'
+  import SubNav from './nav/subnav.vue'
   import DB from '../test/fixture/db.js'
 
   export default {
@@ -367,6 +376,9 @@
       'g-cascader': Cascader,
       'g-carousel': Carousel,
       'g-carousel-item': CarouselItem,
+      'g-nav': Nav,
+      'g-nav-item': NavItem,
+      'g-subnav': SubNav
     }
   }
 
