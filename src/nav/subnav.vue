@@ -1,7 +1,7 @@
 <template>
-  <div class="g-subnav">
+  <div class="g-subnav" @click="toggle">
     <slot name="title"></slot>
-    <div class="g-subnav-content">
+    <div class="g-subnav-content" v-show="open">
       <slot></slot>
     </div>
 
@@ -10,7 +10,17 @@
 
 <script>
   export default {
-    name: "subnav"
+    name: "subnav",
+    data() {
+      return {
+        open: false
+      }
+    },
+    methods: {
+      toggle() {
+        this.open = !this.open
+      }
+    }
   }
 </script>
 
@@ -21,7 +31,10 @@
     display: flex
     align-items: center
     justify-content: center
+    padding: 0 10px
     cursor: pointer
+    &:hover
+     background-color: $nav-background-hover
     &-content
       position: absolute
       top: 100%
