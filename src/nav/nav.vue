@@ -19,6 +19,7 @@
     data() {
       return {
         items: [],
+        subNavItems: []
       }
     },
     mounted() {
@@ -29,6 +30,9 @@
       addItem(vm) {
         this.items.push(vm)
       },
+      addSubNavItems(vm) {
+        this.subNavItems.push(vm)
+      },
       updateChildren() {
         this.items.forEach(vm => {
           if(this.selected.indexOf(vm.name) >=0 ) {
@@ -36,6 +40,9 @@
           } else {
             vm.selected = false
           }
+        })
+        this.subNavItems.forEach(vm => {
+          vm.open = false
         })
       },
       listenToChildren() {

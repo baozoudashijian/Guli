@@ -13,14 +13,17 @@
 <script>
   export default {
     name: "subnav",
+    inject: ['root'],
     data() {
       return {
         open: false
       }
     },
+    created() {
+      this.root.addSubNavItems(this)
+    },
     methods: {
       toggle() {
-        console.log(123)
         this.open = !this.open
       }
     }
