@@ -47,4 +47,5 @@
         justify-content: flex-start
         padding: 0 10px
         height: $subnav-item-height
+        border-bottom: none
 </style>

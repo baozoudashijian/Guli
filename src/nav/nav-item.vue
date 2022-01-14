@@ -39,10 +39,12 @@
     justify-content: center
     padding: 0 20px
     height: $nav-item-height
+    box-sizing: border-box
+    border-bottom: 2px solid $nav-background
     cursor: pointer
     &:hover
       background-color: $nav-background-hover
     &.selected
       color: rgb(255, 208, 75)
-      border-bottom-color: rgb(255, 208, 75)
+      border-bottom: 2px solid $nav-item-border-active
 </style>
