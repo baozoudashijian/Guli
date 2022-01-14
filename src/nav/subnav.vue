@@ -1,8 +1,8 @@
 <template>
   <div class="g-subnav">
-    <span @click="toggle">
+    <div class="g-subnav-title" @click="toggle">
       <slot name="title"></slot>
-    </span>
+    </div>
     <div class="g-subnav-content" v-show="open">
       <slot></slot>
     </div>
@@ -20,6 +20,7 @@
     },
     methods: {
       toggle() {
+        console.log(123)
         this.open = !this.open
       }
     }
@@ -35,6 +36,10 @@
     justify-content: center
     padding: 0 10px
     cursor: pointer
+    & > .g-subnav-title
+      display: flex
+      align-items: center
+      height: 100%
     &:hover
      background-color: $nav-background-hover
     &-content
@@ -48,6 +53,17 @@
       & > .g-nav-item
         justify-content: flex-start
         padding: 0 10px
+        width: 100%
         height: $subnav-item-height
         border-bottom: none
+      & > .g-subnav 
+        display: flex
+        justify-content: flex-start
+        height: $subnav-item-height
+        & > .g-subnav-title 
+          width: 100%
+        & > .g-subnav-content
+          position: absolute
+          left: 100%
+          top: 0
 </style>
