@@ -1,6 +1,8 @@
 <template>
-  <div class="g-subnav" @click="toggle">
-    <slot name="title"></slot>
+  <div class="g-subnav">
+    <span @click="toggle">
+      <slot name="title"></slot>
+    </span>
     <div class="g-subnav-content" v-show="open">
       <slot></slot>
     </div>
