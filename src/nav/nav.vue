@@ -37,8 +37,14 @@
         this.items.forEach(vm => {
           if(this.selected.indexOf(vm.name) >=0 ) {
             vm.selected = true
+          
+            this.$nextTick(() => {
+              this.loopParentSetStyle(vm)
+            });
           } else {
             vm.selected = false
+            // 没选中就全部清除，没必要调用loopParentSetStyle
+            vm.$parent.selectedStyle = false
           }
         })
         this.subNavItems.forEach(vm => {
@@ -54,6 +60,14 @@
             this.$emit('update:selected', [name])
           })
         })
+      },
+      loopParentSetStyle(vm) {
+        if(vm.$parent) {
+          vm.$parent.selectedStyle = true
+          this.loopParentSetStyle(vm.$parent)
+        } else {
+          return false
+        }
       }
     },
     updated() {

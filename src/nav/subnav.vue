@@ -1,6 +1,6 @@
 <template>
   <div class="g-subnav">
-    <div class="g-subnav-title" @click="toggle">
+    <div class="g-subnav-title" @click="toggle" :class="{selectedStyle}">
       <slot name="title"></slot>
     </div>
     <div class="g-subnav-content" v-show="open">
@@ -16,7 +16,8 @@
     inject: ['root'],
     data() {
       return {
-        open: false
+        open: false,
+        selectedStyle: false
       }
     },
     created() {
@@ -43,6 +44,8 @@
       display: flex
       align-items: center
       height: 100%
+      &.selectedStyle
+        border-bottom: 2px solid $nav-item-border-active
     &:hover
      background-color: $nav-background-hover
     &-content
@@ -65,6 +68,9 @@
         height: $subnav-item-height
         & > .g-subnav-title 
           width: 100%
+          &.selectedStyle
+            color: $nav-item-border-active
+            border-bottom: none
         & > .g-subnav-content
           position: absolute
           left: 100%

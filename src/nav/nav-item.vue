@@ -23,7 +23,8 @@
     },
     methods: {
       updateSeleted() {
-        console.log(this.name)
+        // console.log(this.$parent.selectedStyle)
+        // this.$parent.selectedStyle = true
         this.$emit('add:selected', this.name)
         // this.root.addItem(this)
       }
