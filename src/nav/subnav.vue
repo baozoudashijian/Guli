@@ -2,6 +2,7 @@
   <div class="g-subnav">
     <div class="g-subnav-title" @click="toggle" :class="{selectedStyle}">
       <slot name="title"></slot>
+      <g-icon icon="arrow-right"></g-icon>
     </div>
     <div class="g-subnav-content" v-show="open">
       <slot></slot>
@@ -10,7 +11,8 @@
   </div>
 </template>
 
-<script>
+<script> 
+  import Icon from '../icon/icon.vue'
   export default {
     name: "subnav",
     inject: ['root'],
@@ -19,6 +21,9 @@
         open: false,
         selectedStyle: false
       }
+    },
+    components: {
+      'g-icon': Icon
     },
     created() {
       this.root.addSubNavItems(this)
@@ -44,6 +49,7 @@
       display: flex
       align-items: center
       height: 100%
+      fill: #fff
       &.selectedStyle
         border-bottom: 2px solid $nav-item-border-active
     &:hover
@@ -66,11 +72,15 @@
         display: flex
         justify-content: flex-start
         height: $subnav-item-height
-        & > .g-subnav-title 
+        & > .g-subnav-title
           width: 100%
+          display: flex
+          justify-content: space-between
+          fill: #fff
           &.selectedStyle
             color: $nav-item-border-active
             border-bottom: none
+            fill: $nav-item-border-active
         & > .g-subnav-content
           position: absolute
           left: 100%
