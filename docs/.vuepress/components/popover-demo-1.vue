@@ -70,6 +70,11 @@
           </g-popover>
       `.replace(/^ {8}/gm, '').trim()
       }
+    },
+    methods: {
+      yyy() {
+
+      }
     }
   }
 </script>

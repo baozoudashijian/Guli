@@ -32,6 +32,7 @@ module.exports = {
           '/components/layout',
           '/components/nav',
           '/components/popover',
+          '/components/tab',
         ]
       },
 
