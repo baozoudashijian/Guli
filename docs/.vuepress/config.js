@@ -31,6 +31,7 @@ module.exports = {
           '/components/input',
           '/components/layout',
           '/components/nav',
+          '/components/popover',
         ]
       },
 
