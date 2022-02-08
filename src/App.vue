@@ -195,37 +195,37 @@
     <!--          </g-cascader>-->
     <!--          <div>{{source}}</div>-->
     <!--        </div>-->
+        <div class="component-group">
+          <g-carousel>
+            <g-carousel-item name="1">
+              <div class="box">1</div>
+            </g-carousel-item>
+            <g-carousel-item name="2">
+              <div class="box">2</div>
+            </g-carousel-item>
+            <g-carousel-item name="3">
+              <div class="box">3</div>
+            </g-carousel-item>
+          </g-carousel>
+        </div>
     <!--    <div class="component-group">-->
-    <!--      <g-carousel>-->
-    <!--        <g-carousel-item name="1">-->
-    <!--          <div class="box">1</div>-->
-    <!--        </g-carousel-item>-->
-    <!--        <g-carousel-item name="2">-->
-    <!--          <div class="box">2</div>-->
-    <!--        </g-carousel-item>-->
-    <!--        <g-carousel-item name="3">-->
-    <!--          <div class="box">3</div>-->
-    <!--        </g-carousel-item>-->
-    <!--      </g-carousel>-->
+    <!--      <g-nav :selected.sync="selected">-->
+    <!--        <g-nav-item name="process">处理中心</g-nav-item>-->
+    <!--        <g-subnav>-->
+    <!--          <template slot="title">我的工作台</template>-->
+    <!--          <g-nav-item name="logistics">物流管理</g-nav-item>-->
+    <!--          <g-nav-item name="complaint">投诉管理</g-nav-item>-->
+    <!--          <g-subnav>-->
+    <!--            <template slot="title">商品管理</template>-->
+    <!--            <g-nav-item name="addGoods">新增商品</g-nav-item>-->
+    <!--            <g-nav-item name="removeGoods">下架商品</g-nav-item>-->
+    <!--            <g-nav-item name="historyGoods">历史商品</g-nav-item>-->
+    <!--          </g-subnav>-->
+    <!--        </g-subnav>-->
+    <!--        <g-nav-item name="message">消息中心</g-nav-item>-->
+    <!--        <g-nav-item name="order">订单管理</g-nav-item>-->
+    <!--      </g-nav>-->
     <!--    </div>-->
-    <div class="component-group">
-      <g-nav :selected.sync="selected">
-        <g-nav-item name="process">处理中心</g-nav-item>
-        <g-subnav>
-          <template slot="title">我的工作台</template>
-          <g-nav-item name="logistics">物流管理</g-nav-item>
-          <g-nav-item name="complaint">投诉管理</g-nav-item>
-          <g-subnav>
-            <template slot="title">商品管理</template>
-            <g-nav-item name="addGoods">新增商品</g-nav-item>
-            <g-nav-item name="removeGoods">下架商品</g-nav-item>
-            <g-nav-item name="historyGoods">历史商品</g-nav-item>
-          </g-subnav>
-        </g-subnav>
-        <g-nav-item name="message">消息中心</g-nav-item>
-        <g-nav-item name="order">订单管理</g-nav-item>
-      </g-nav>
-    </div>
 
   </div>
 
