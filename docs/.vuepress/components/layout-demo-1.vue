@@ -34,9 +34,14 @@
     data() {
       return {
         content: `
-          <g-icon icon="setting"></g-icon>
-          <g-icon icon="arrow-down"></g-icon>
-          <g-icon icon="arrow-up"></g-icon>
+          <g-layout>
+            <g-slider>sldier</g-slider>
+            <g-layout>
+              <g-header>header</g-header>
+              <g-content>content</g-content>
+              <g-footer>footer</g-footer>
+            </g-layout>
+          </g-layout>
       `.replace(/^ {8}/gm, '').trim()
       }
     }
