@@ -27,6 +27,8 @@ module.exports = {
           '/components/cascader',
           '/components/collapse',
           '/components/grid',
+          '/components/icon',
+          '/components/input',
         ]
       },
 
