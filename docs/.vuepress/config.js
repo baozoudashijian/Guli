@@ -33,6 +33,7 @@ module.exports = {
           '/components/nav',
           '/components/popover',
           '/components/tab',
+          '/components/toast'
         ]
       },
 
