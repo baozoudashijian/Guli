@@ -23,7 +23,9 @@ module.exports = {
         collapsable: false,
         children: [
           '/components/button',
-          '/components/carousel'
+          '/components/carousel',
+          '/components/cascader',
+          '/components/collapse',
         ]
       },
 
