@@ -29,6 +29,7 @@ module.exports = {
           '/components/grid',
           '/components/icon',
           '/components/input',
+          '/components/layout',
         ]
       },
 

@@ -30,6 +30,6 @@
     flex-direction: column
     flex: 1 1 auto
 
-    .hasSlider
+    &.hasSlider
       flex-direction: row
 </style>
