@@ -26,6 +26,7 @@ module.exports = {
           '/components/carousel',
           '/components/cascader',
           '/components/collapse',
+          '/components/grid',
         ]
       },
 
